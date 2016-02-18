@@ -15,14 +15,21 @@ Event-finder is an event locator for any and all events based on various search 
 		+ Name
 		+ Location
 		+ Date
-		+ Type (Music/politics/touristy-stuff/eating/science lectures/pub crawls/etc.)
+		+ Type 
+			1. Music
+			3. Tourism Spots
+			4. Eating
+			5. Pub Crawls
+			6. Science/Technical Lectures
+			7. Other
 	+ Google Maps directions to the location
 + User Base
 	+ Log in+Sign up
 	+ Favorite/Star events to look at later
 	+ Comment on events
 	+ Post events???
-	+ X people are going to the thing
+	+ Event tracker
+		+ X people are going to the thing
 
 
 ###TECHNOLOGIES:
@@ -32,6 +39,9 @@ Event-finder is an event locator for any and all events based on various search 
 	+ Events you want to go to and events you’ve been to (history of your events)
 	+ Your favorites (Checking in and stuffs)
 + Express
++ Passport
+	+ Facebook
+	+ Gmail
 + Data aggregation (Scraping? Google stuff?)
 	+ Facebook events
 	+ Eventbrite
@@ -43,9 +53,16 @@ Event-finder is an event locator for any and all events based on various search 
  + [PORTIA Web Scraper](http://scrapinghub.com/portia/)
 
 ###INPUTS:
-+ email
-+ password
-+ gmail account
++ Email
++ Password
++ Gmail account
++ Facebook
++ Location
 
 ###OUTPUTS:
-+ google maps
++ Google Maps
++ Google Calendar/Reminders
++ Event Profiles
++ User Profiles
++ Langing Page
++ Event/Updates Tracker
