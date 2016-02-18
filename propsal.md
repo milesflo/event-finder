@@ -26,7 +26,7 @@ Event-finder is an event locator for any and all events based on various search 
 
 
 ###TECHNOLOGIES:
-+ Front-end framework (Angular prolly)
++ Angular Front-end framework
 + Knex+PostgreSQL
 	+ Username+Password
 	+ Events you want to go to and events you’ve been to (history of your events)
