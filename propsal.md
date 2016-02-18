@@ -31,7 +31,6 @@ Event-finder is an event locator for any and all events based on various search 
 	+ Event tracker
 		+ X people are going to the thing
 
-
 ###TECHNOLOGIES:
 + Angular Front-end framework
 + Knex+PostgreSQL
@@ -42,14 +41,13 @@ Event-finder is an event locator for any and all events based on various search 
 + Passport
 	+ Facebook
 	+ Gmail
-+ Data aggregation (Scraping? Google stuff?)
++ Data aggregation (Scraping? Google?)
 	+ Facebook events
 	+ Eventbrite
 	+ LiveNation
 	+ Ticket Master
 	+ Google Maps API 
-	+ Google calendar integration??
-		+ It’s a file format of some kind... Prolly a lot like JSON
+	+ Google Calendar Integration
  + [PORTIA Web Scraper](http://scrapinghub.com/portia/)
 
 ###INPUTS:
