@@ -1,0 +1,29 @@
+{
+  "name": "event-finder",
+  "version": "1.0.0",
+  "description": "This assignment is a capstone of all that we have learned about the Angular frontend framework, and encorporates many previously learned technologies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirinapha88/event-finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirinapha88/event-finder/issues"
+  },
+  "homepage": "https://github.com/sirinapha88/event-finder#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "knex": "^0.10.0",
+    "locus": "^1.2.0",
+    "method-override": "^2.3.5",
+    "morgan": "^1.6.1",
+    "pg": "^4.4.6"
+  }
+}
