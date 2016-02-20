@@ -19,21 +19,17 @@ app.get('/', function(req,res){
 });
 
 
-apiRouter.route('/icecreams')
-.get(function(req,res){
-  knex('posts').then(function(error,response){
-		res.json(response);
-	});
-});
-// .post(function(req,res){
-//   db.Icecream.create(req.body,function(error){
-//     if (error) return res.json({error:error.message});
-//     res.json({ message: 'Ice-cream created!' });
-//   });
+// apiRouter.route('/event')
+// .get(function(req,res){
+//   knex('posts').then(function(error,response){
+// 		res.json(response);
+// 	});
 // });
+
+
 
 app.use('/', apiRouter);
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function() {console.log("Listening on localhost:", PORT) });
