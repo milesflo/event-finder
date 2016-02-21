@@ -4,7 +4,7 @@ app.config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
 		templateUrl: "./partials/landing.html",
-		controller: "LandingController"
+		controller: "Landing"
 	});
 	// .when('/event', {
 	// 	templateUrl: "partials/event.html"
@@ -13,4 +13,5 @@ app.config(function($routeProvider) {
 	// .otherwise({
 	// 	redirectTo: "/"
 	// })
-});
+})
+

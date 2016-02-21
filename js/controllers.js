@@ -1,9 +1,12 @@
-app.controller("Landing", function($scope, $rootScope, $routeParams) {
+app.controller("LandingController", function($scope, $http) {
 	window.scope = $scope;
 	$scope.eventCategories = [""];
-
-	$http.get("<insert API url here>").then(function(response) {
+	var event1 = $scope.findEvent.replace(' ', '+');
+	console.log('Hello');
+	$http.get("http://eventful.com/events?q=" + event1).then(function(response) {
+		eventCategories.results = response.data.Search;
 		$scope.events = response.data;
+		console.log(response.data);
 
 		function categories(arr) {
 			for (var n = 0; n < arr.length; n++) {
@@ -18,5 +21,6 @@ app.controller("Landing", function($scope, $rootScope, $routeParams) {
 			categories($scope.categories[i].categories);
 		}
 	})
+	console.log(eventCategories.results);
 })
 
