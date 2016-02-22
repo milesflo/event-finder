@@ -6,7 +6,7 @@ app.config(function($routeProvider, $http) {
 		templateUrl: "partials/landing.html",
 		controller: "Landing"
 	}).when('/event', {
-		templateUrl: "partials/event.html"
+		templateUrl: "partials/event.html",
 		controller: "Landing"
 	})
 	.otherwise({
