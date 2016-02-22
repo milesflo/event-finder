@@ -7,7 +7,6 @@ var express = require("express"),
 	path = require('path');
 
 
-
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use(morgan('tiny'));
 // app.use(methodOverride('_method'));
@@ -15,7 +14,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/', function(req,res){
-  res.sendFile(__dirname + "./../client/views/index.html");
+  res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
 
 app.use('/', apiRouter);
