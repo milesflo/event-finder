@@ -13,6 +13,9 @@ app.use(morgan('tiny'));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 
+// app.use('/api/users', routes.users);
+// app.use('/api/todos', routes.todos);
+
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
