@@ -3,7 +3,7 @@ var app = angular.module("eventTracker", ["ngRoute", "ngAnimate"]);
 app.config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl: "./partials/landing.html",
+		templateUrl: "client/partials/landing.html",
 		controller: "LandingController"
 	});
 	// .when('/event', {
