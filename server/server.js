@@ -3,7 +3,7 @@ var express = require("express"),
 	bodyParser = require("body-parser"),
 	morgan = require("morgan"),
 	// var methodOverride = require("method-override");
-	apiRouter = express.Router(),
+	apiRouter = express.Router("/routes.index.js"),
 	path = require('path');
 
 
@@ -15,11 +15,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/', function(req,res){
-  res.send("Hello! YOOO");
+  res.sendFile(__dirname + "./../client/views/index.html");
 });
-
-
-
 
 app.use('/', apiRouter);
 
