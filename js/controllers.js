@@ -1,8 +1,10 @@
 app.controller("LandingController", function($scope, $http) {
 	window.scope = $scope;
 	$scope.eventCategories = [""];
+
 	var event1 = $scope.findEvent.replace(' ', '+');
 	console.log('Hello');
+	
 	$http.get("http://eventful.com/events?q=" + event1).then(function(response) {
 		eventCategories.results = response.data.Search;
 		$scope.events = response.data;
