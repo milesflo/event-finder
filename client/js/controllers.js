@@ -1,22 +1,18 @@
-app.controller("Landing", function($scope, $rootScope, $routeParams) {
+app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
 	window.scope = $scope;
 	$scope.eventCategories = [""];
 
-	$http.get("<insert API url here>").then(function(response) {
-		$scope.events = response.data;
 
-		function categories(arr) {
-			for (var n = 0; n < arr.length; n++) {
-		    	var current = arr[n];
-		    	var index = $scope.eventCategories.indexOf(current);
-		    	if (index === -1) {
-		    		$scope.eventCategories.push(arr[n]);
-		    	}
-		    }
-		};
-		for (var i=0; i < $scope.events.length; i++) {
-			categories($scope.categories[i].categories);
-		}
-	})
-})
+	console.log("foo");
+	$http.get("https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ&callback=initMap").then(function(response) {
+		console.log("foo");
+		$scope.map = response.data;
+		$scope.initMap = function () {
+  			map = new google.maps.Map(document.getElementById('map'), {
+  				center: {lat: -34.397, lng: 150.644},
+   				zoom: 8
+   			});
+   		}
+	});
+});
 

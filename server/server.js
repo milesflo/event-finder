@@ -3,9 +3,8 @@ var express = require("express"),
 	bodyParser = require("body-parser"),
 	morgan = require("morgan"),
 	// var methodOverride = require("method-override");
-	apiRouter = express.Router(),
+	apiRouter = express.Router("/routes.index.js"),
 	path = require('path');
-
 
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use(morgan('tiny'));
