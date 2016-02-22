@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="eventTracker">
 <head>
 	<title>Epic Events</title>
 	<!-- AngularJS -->
@@ -18,19 +18,9 @@
 	<link rel="stylesheet" href="/client/css/style.css">
 </head>
 <body>
-	
-	<div id="map" style="height:600px"></div>
-    <script type="text/javascript">
-
-	var map;
-	function initMap() {
-	  map = new google.maps.Map(document.getElementById('map'), {
-	    center: {lat: -34.397, lng: 150.644},
-	    zoom: 8
-	  });
-	}
-
-    </script>
+	<div ng-view>		
+		
+    </div>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ&callback=initMap">
     </script>
