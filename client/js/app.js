@@ -27,7 +27,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 		redirectTo: "/"
 	});
 
-	$locationProvider.html5Mode(true);
+	// $locationProvider.html5Mode(true);
 	// Registed the interceptor for our application
   	$httpProvider.interceptors.push("AuthInterceptor");
 });
