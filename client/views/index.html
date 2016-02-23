@@ -18,13 +18,49 @@
 	<link rel="stylesheet" href="/client/css/style.css">
 </head>
 <body>
-	<div ng-view>		
-		
-    </div>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ&callback=initMap">
-    </script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1007959409296857',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+    FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    console.log('Logged in.');
+  }
+  else {
+    FB.login(function() {}, {scope: 'user_events'});
+  }
+});
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+	<div class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand">
+					<i class="fa fa-rebel text-danger"></i> Welcome
+				</a>
+			</div>
+		</div>
+	</div>
 
+	<div ng-view>
+
+    </div>
+
+	<div class="navbar navbar-fixed-bottom navbar-inverse">
+		<div class="container">
+			<p class="navbar-text">Cairo, David, Tum, Ana, Miles</p>
+		</div>
+	</div>
 	<script type="text/javascript" src="/client/js/app.js"></script>
 	<script type="text/javascript" src="/client/js/controllers.js"></script>
 	<script type="text/javascript" src="/client/js/directives.js"></script>

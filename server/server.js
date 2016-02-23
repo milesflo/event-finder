@@ -2,24 +2,23 @@ var express = require("express"),
 	app = express(),
 	bodyParser = require("body-parser"),
 	morgan = require("morgan"),
-	// var methodOverride = require("method-override");
-	apiRouter = express.Router("/routes.index.js"),
+	routes = require('./routes'),
 	path = require('path');
 
 app.use('/client', express.static(path.join(__dirname, '../client')));
+app.use('/js',express.static(path.join(__dirname, '../client/js')));
+app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
+
 app.use(morgan('tiny'));
-// app.use(methodOverride('_method'));
-app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-// app.use('/api/users', routes.users);
+app.use('/api/users', routes.users);
 // app.use('/api/todos', routes.todos);
 
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
-
-app.use('/', apiRouter);
 
 var PORT = process.env.PORT || 3000;
 
