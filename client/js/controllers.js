@@ -1,11 +1,10 @@
 app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     window.scope = $scope;
     $scope.eventCategories = [""];
-    var query = $scope.query;
 
     $scope.redirect = function(query) {
         console.log(query);
-        $http.get("http://eventful.com/events?q="+ query, function(response) {
+        $http.get("http://api.eventful.com/json/events/search?keywords="+ query + "&location=San+Francisco", function(response) {
             console.log("It works yay");
         })
     }
