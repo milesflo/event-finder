@@ -1,9 +1,9 @@
 var app = angular.module("eventTracker", ["ngRoute", "ngAnimate"]);
 
-app.config(function($routeProvider, $http) {
+app.config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl: "/client/partials/landing.html",
+		templateUrl: "/client/views/templates/landing.html",
 		controller: "Landing",
 	}).when('/event', {
 		templateUrl: "partials/event.html",
