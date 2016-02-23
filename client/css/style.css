@@ -3,27 +3,43 @@
 }
 */
 
-.buttons{
-	/*margin-left: 70%;*/
-	
+#header{
+	color: white;
+	font-size: 35px;
 }
 
+
 #homeButton{
-	color: black;
-	background-color: white;
-	border: 2px solid black;
+	color: white;
+	background-color: #93c54b;
+	/*border: 2px solid black;*/
+	margin-top: 40%;
+	margin-right: 8%;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 
 #loginButton{
-	color: black;
-	background-color: white;
-	border: 2px solid black;
+	color: white;
+	background-color: #93c54b;
+	/*border: 2px solid black;*/
+	margin-top: 40%;
+	margin-right: 8%;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 
 #signupButton{
-	color: black;
-	background-color: white;
-	border: 2px solid black;
+	color: white;
+	background-color: #93c54b;
+	/*border: 2px solid black;*/
+	margin-top: 36%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#navButtons{
+
 }
 
 
