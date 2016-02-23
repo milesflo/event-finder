@@ -4,7 +4,9 @@ var express = require("express"),
 	morgan = require("morgan"),
 	// var methodOverride = require("method-override");
 	apiRouter = express.Router("/routes.index.js"),
-	path = require('path');
+	path = require('path'),
+	env = require('dotenv');
+
 
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use(morgan('tiny'));
@@ -20,4 +22,4 @@ app.use('/', apiRouter);
 
 var PORT = process.env.PORT || 3000;
 
-app.listen(PORT, function() {console.log("Listening on localhost:", PORT) });
+app.listen(PORT, function() {console.log("Listening on localhost:", PORT)});
