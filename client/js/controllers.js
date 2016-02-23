@@ -21,7 +21,8 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
                 zoom: 8
             });
     }
-    
+
+    $scope.initMap();
 });
 
 

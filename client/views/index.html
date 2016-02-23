@@ -18,61 +18,9 @@
 	<link rel="stylesheet" href="client/css/style.css">
 </head>
 <body>
-<<<<<<< HEAD
-
-
-
 
 <!-- WHEN READY -->
 <div ng-view> </div>
-=======
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1007959409296857',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-    FB.getLoginStatus(function(response) {
-  if (response.status === 'connected') {
-    console.log('Logged in.');
-  } else {
-	    FB.login(function() {}, {scope: 'user_events'});
-  }
-	});
-  };
-	(function(d, s, id){
-	 var js, fjs = d.getElementsByTagName(s)[0];
-	 if (d.getElementById(id)) {return;}
-	 js = d.createElement(s); js.id = id;
-	 js.src = "//connect.facebook.net/en_US/sdk.js";
-	 fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-</script>
-<!-- HEADER -->
-	<nav class="navbar navbar-inverse" id='navbar'>
-  		<div class="container">
-    		<div class="navbar-header">
-     			<a class="navbar-brand" href="#" id='header'>
-     			<i class="fa fa-rebel text-primary"></i> Epic Events
-     			</a>
-    		</div>
-      		<ul class="nav navbar-nav navbar-right">
-		        <li><a href="#" id='homeButton'>Home</a></li>
-		        <li><a href="#" id='loginButton'>Login</a></li>
-      		</ul>
-  		</div>
-	</nav>
-<div ng-view>
-	
-</div>
-
-
-<!-- FOOTER -->
-	<div class="navbar navbar-fixed-bottom navbar-inverse">
-		<p id='footerText'>Cairo, David, Tum, Ana, Miles</p>
-	</div>
->>>>>>> a3611c0acefd0e587c15f5946689ac971c1dee39
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ"></script>
 	<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
