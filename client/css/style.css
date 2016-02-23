@@ -20,7 +20,7 @@
 	padding-bottom: 2px;
 }
 
-#editProfileBtn{
+#logout{
 	color: white;
 	background-color: #93c54b;
 	font-size: 15px;
@@ -59,8 +59,9 @@
 
 
 #musicCategory{
-	margin-bottom: 70px;
+	margin-bottom: 20px;
 }
+
 
 #musicLabel{
 	text-align: center;
@@ -74,6 +75,37 @@
 	text-align: center;
 }
 
+#myEventsLabel{
+	text-align: center;
+}
+
+#myEventsCategory{
+	margin-bottom: 20px;
+}
+
+#thumbnailLabel{
+	text-align: center;
+}
+
+#thumbnailBtn{
+	margin-left: 82%;
+	font-size: 9px;
+	margin-top: 27%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#removeBtn{
+	margin-left: 78%;
+	font-size: 9px;
+	margin-top: 27%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#popLabel{
+	text-align: center;
+}
 
 
 #footer{

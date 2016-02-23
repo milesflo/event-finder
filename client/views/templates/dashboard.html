@@ -22,6 +22,8 @@
 	<!-- Css Page -->
 	<link rel="stylesheet" href="../../css/style.css">
 </head>
+
+<body>
 <!-- HEADER -->
 	<nav class="navbar navbar-inverse" id='navbar'>
   		<div class="container">
@@ -31,7 +33,7 @@
      			</a>
     		</div>
       		<ul class="nav navbar-nav navbar-right">
-		        <li><a href="#" id='editProfileBtn'>Profile</a></li>
+		        <li><a href="#" id='logout'>Logout</a></li>
       		</ul>
   		</div>
 	</nav>
@@ -56,57 +58,61 @@
 
 	    <!-- my events -->
 	    <div class='container'>
-	     My Events:
-		    <div class="row" id='musicCategory'>
-			  	<div class="col-sm-6 col-md-3">
-			    	<div class="thumbnail">
-			      		<img src="https://unsplash.it/300/200/?random" alt="...">
-			      		<div class="caption">
-			        		<h3>Thumbnail label</h3>
-			        		<p>...</p>
-			        		<p><a href="#" class="btn btn-primary" role="button">Button</a> </p>
-			      		</div>
-			    	</div>
-			  	</div>
-			  	<div class="col-sm-6 col-md-3">
-			    	<div class="thumbnail">
-			      		<img src="https://unsplash.it/300/200/?random" alt="...">
-			      		<div class="caption">
-			        		<h3>Thumbnail label</h3>
-			        		<p>...</p>
-			        		<p><a href="#" class="btn btn-primary" role="button">Button</a> </p>
-			      		</div>
-			    	</div>
-			  	</div>
-			  	<div class="col-sm-6 col-md-3">
-			    	<div class="thumbnail">
-			      		<img src="https://unsplash.it/300/200/?random" alt="...">
-			      		<div class="caption">
-			        		<h3>Thumbnail label</h3>
-			        		<p>...</p>
-			        		<p><a href="#" class="btn btn-primary" role="button">Button</a> </p>
-			      		</div>
-			    	</div>
-			  	</div>
+	    	<h4 id='myEventsLabel'> <strong> MY EVENTS: </strong> </h4>
+			    <div class="row" id='myEventsCategory'>
+				  	<div class="col-sm-3 col-md-4">
+				    	<div class="thumbnail">
+				      		<img src="https://unsplash.it/400/300/?random" alt="...">
+				      		<div class="caption">
+				        		<h4 id='thumbnailLabel'>Thumbnail Label</h4>
+				        		<p>...</p>
+				        		<p>
+				        			<a href="#" id='removeBtn' class="btn btn-primary" role="button">Remove</a> 
+				        		</p>
+				      		</div>
+				    	</div>
+				  	</div>
+				  	<div class="col-sm-3 col-md-4">
+				    	<div class="thumbnail">
+				      		<img src="https://unsplash.it/400/300/?random" alt="...">
+				      		<div class="caption">
+				        		<h4 id='thumbnailLabel'>Thumbnail Label</h4>
+				        		<p>...</p>
+				        		<p>
+				        			<a href="#" id='removeBtn' class="btn btn-primary" role="button">Remove</a> 
+				        		</p>
+				      		</div>
+				    	</div>
+				  	</div>
+				  	<div class="col-sm-3 col-md-4">
+				    	<div class="thumbnail">
+				      		<img src="https://unsplash.it/400/300/?random" alt="...">
+				      		<div class="caption">
+				        		<h4 id='thumbnailLabel'>Thumbnail Label</h4>
+				        		<p>...</p>
+				        		<p>
+				        			<a href="#" id='removeBtn' class="btn btn-primary" role="button">Remove</a> 
+				        		</p>
+				      		</div>
+				    	</div>
+				  	</div>
 
-			</div>
+				</div>
 
-		<!-- popular -->
-		<div class='container'>
-		<p>Popular:</p>
+
+			<!-- sports -->
+			<h4 id='popLabel'> <strong> POPULAR: </strong></h4>
+			    
 		</div>
 	</div>
-	    
-
 
 
 <!-- FOOTER -->
-	<div class="navbar navbar-fixed-bottom navbar-inverse">
+	<div class="navbar navbar-inverse">
 		<div class="container">
 			<p class="navbar-text" id='ourNames'>Cairo, David, Tum, Ana, Miles</p>
 		</div>
 	</div>
 
-
-
-
+</body>
+</html>
