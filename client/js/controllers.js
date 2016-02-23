@@ -5,38 +5,38 @@ app.controller("Landing", function($scope, $http) {
 	
 	console.log('Hello');
 	
-// 	$http.get("http://api.eventful.com/js/api").then(function(response) {
-// 		eventCategories.results = function(){
-// 	        app_key:"QfMJMhDnc8BXXWC6",
+	$http.get("http://eventful.com/events?q=" + {{$scope.query}}).then(function(response) {
+		eventCategories.results = function(){
+	        app_key:"QfMJMhDnc8BXXWC6",
 
-//             id: "20218701",
+            id: "20218701",
 
-//             page_size: 25 
+            page_size: 25 
 
-//   		};
-// 		console.log(eventCategories.results);
+  		};
+		console.log(eventCategories.results);
 
-		function show_alert()
+		// function show_alert()
 
-		{
+		// {
 
-		  var oArgs = {
+		//   var oArgs = {
 
-		            app_key:"QfMJMhDnc8BXXWC6",
+		//             app_key:"QfMJMhDnc8BXXWC6",
 
-		            id: "20218701",
+		//             id: "20218701",
 
-		            page_size: 25 ,
+		//             page_size: 25 ,
 
-		  };
+		//   };
 
-		  EVDB.API.call("/events/get", oArgs, function(oData) {
+		//   EVDB.API.call("/events/get", oArgs, function(oData) {
 
-		      // Note: this relies on the custom toString() methods below
+		//       // Note: this relies on the custom toString() methods below
 
-		    });
+		//     });
 
-		}
+		// }
 
 
 
