@@ -7,6 +7,11 @@
 	background-image: url(http://eventlist.wemakemedia.cz/wp-content/uploads/2015/11/background_02.jpg)
 }*/
 
+#displayFormat {
+ display: block;
+ margin: 0 auto;
+};
+
 #header{
 	color: white;
 	font-size: 35px;
