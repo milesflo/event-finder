@@ -28,19 +28,18 @@
     FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     console.log('Logged in.');
+  } else {
+	    FB.login(function() {}, {scope: 'user_events'});
   }
-  else {
-    FB.login(function() {}, {scope: 'user_events'});
-  }
-});
+	});
   };
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+	(function(d, s, id){
+	 var js, fjs = d.getElementsByTagName(s)[0];
+	 if (d.getElementById(id)) {return;}
+	 js = d.createElement(s); js.id = id;
+	 js.src = "//connect.facebook.net/en_US/sdk.js";
+	 fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
 </script>
 	<div class="navbar navbar-inverse">
 		<div class="container">
@@ -56,12 +55,11 @@
 
     </div>
 
-	<div class="navbar navbar-fixed-bottom navbar-inverse">
+	<div class="navbar navbar-inverse">
 		<div class="container">
 			<p class="navbar-text">Cairo, David, Tum, Ana, Miles</p>
 		</div>
 	</div>
-
 	<script type="text/javascript" src="/client/js/app.js"></script>
 	<script type="text/javascript" src="/client/js/controllers.js"></script>
 	<script type="text/javascript" src="/client/js/directives.js"></script>
