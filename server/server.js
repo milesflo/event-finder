@@ -68,4 +68,4 @@ require('./routes/users.js')(app,passport);
 
 var PORT = process.env.PORT || 3000;
 
-app.listen(PORT, function() {console.log("Listening on localhost:", PORT) });
+app.listen(PORT, function() {console.log("Listening on localhost:", PORT)});
