@@ -78,14 +78,21 @@
 }
 */
 
+#musicCategory{
+	margin-bottom: 70px;
+}
 
 
 
-#footerText{
-	/*margin-top: 10%;*/
+#footer{
 	color: white;
-	text-align: center;
-	/*padding-top: 10%;*/
+	text-align: center
+	height: 1px;
+	width: 100%;
+}
+
+#ourNames{
+	color: white;
 }
 
 
