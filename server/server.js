@@ -17,11 +17,12 @@ passport.serializeUser(function(user, done) {
 		}
 	});
 
-	passport.deserializeUser(function(user, done) {
-		Knex('users').where({ id: user.id }).then(function(user, err) {
-			done(err, user);
-		});
+passport.deserializeUser(function(user, done) {
+	console.log(user);
+	Knex('users').where({ id: user.id }).then(function(user, err) {
+		done(err, user);
 	});
+});
 
 
 	passport.use(new FacebookStrategy({
@@ -30,8 +31,9 @@ passport.serializeUser(function(user, done) {
 		callbackURL: 'http://localhost:3000'
 	},
 	function(token, refreshToken, profile, done) {
-		console.log(profile);
+		
 		process.nextTick(function() {
+			console.log(profile)
 			Knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
 					done(err);
@@ -48,6 +50,8 @@ passport.serializeUser(function(user, done) {
 		});
 	}
 ));
+
+
 
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
