@@ -1,11 +1,16 @@
 app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     window.scope = $scope;
     $scope.eventCategories = [""];
+    var oArgs = {
+            app_key:   "QfMJMhDnc8BXXWC6",
+            id:        "20218701",
+            page_size: 25 ,
+            q:         $scope.query,
+        };
 
     $scope.redirect = function(query) {
-        console.log(query);
-        $http.get("http://api.eventful.com/json/events/search?keywords="+ query + "&location=San+Francisco", function(response) {
-            console.log("It works yay");
+        EVDB.API.call("/events/search", oArgs, function(response) {
+            console.log(query, response);
         })
     }
 
