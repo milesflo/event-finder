@@ -30,7 +30,7 @@ passport.serializeUser(function(user, done) {
 		callbackURL: 'http://localhost:3000'
 	},
 	function(token, refreshToken, profile, done) {
-		console.log(profile);
+		console.log(profile + "HERE!!!!");
 		process.nextTick(function() {
 			Knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
@@ -53,7 +53,7 @@ app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
 
-app.use(morgan('tiny'));
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
