@@ -5,10 +5,10 @@ app.config(function($routeProvider) {
 	.when('/', {
 		templateUrl: "/client/views/templates/landing.html",
 		controller: "Landing",
-	}).when('/event', {
-		templateUrl: "partials/event.html",
-		controller: "Landing"
-	})
+	})//.when('/event', {
+	// 	templateUrl: "partials/event.html",
+	// 	controller: "Landing"
+	// })
 	.otherwise({
 		redirectTo: "/"
 	})
