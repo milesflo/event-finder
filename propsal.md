@@ -62,5 +62,5 @@ Event-finder is an event locator for any and all events based on various search 
 + Google Calendar/Reminders
 + Event Profiles
 + User Profiles
-+ Langing Page
++ Landing Page
 + Event/Updates Tracker
