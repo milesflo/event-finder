@@ -1,0 +1,30 @@
+/*body{
+	background-color: red;
+}
+*/
+
+.buttons{
+	/*margin-left: 70%;*/
+	
+}
+
+#homeButton{
+	color: black;
+	background-color: white;
+	border: 2px solid black;
+}
+
+#loginButton{
+	color: black;
+	background-color: white;
+	border: 2px solid black;
+}
+
+#signupButton{
+	color: black;
+	background-color: white;
+	border: 2px solid black;
+}
+
+
+
