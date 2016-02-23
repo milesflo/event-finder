@@ -1,22 +1,78 @@
-app.controller("Landing", function($scope, $rootScope, $routeParams) {
-	window.scope = $scope;
-	$scope.eventCategories = [""];
+app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
+    window.scope = $scope;
+    $scope.eventCategories = [""];
+    var oArgs = {
+            app_key:   "QfMJMhDnc8BXXWC6",
+            id:        "20218701",
+            page_size: 25 ,
+            q:         $scope.query,
+        };
 
-	$http.get("<insert API url here>").then(function(response) {
-		$scope.events = response.data;
+    $scope.redirect = function(query) {
+        EVDB.API.call("/events/search", oArgs, function(response) {
+            console.log(query, response);
+        })
+    }
 
-		function categories(arr) {
-			for (var n = 0; n < arr.length; n++) {
-		    	var current = arr[n];
-		    	var index = $scope.eventCategories.indexOf(current);
-		    	if (index === -1) {
-		    		$scope.eventCategories.push(arr[n]);
-		    	}
-		    }
-		};
-		for (var i=0; i < $scope.events.length; i++) {
-			categories($scope.categories[i].categories);
-		}
-	})
+
+    $scope.initMap = function () {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+    }
+
+    $scope.initMap();
+});
+
+
+app.controller('ApiCtrl', function($scope, $http, $timeout){
+  $timeout(function() { FB.api('/search', 'GET', {q: 'fun', type: 'event'}, function(data) { console.log(data)}) }, 2000)
 })
 
+
+app.controller('LoginController', function($scope, $http) {
+    $scope.user = {};
+    $scope.posts = [];
+
+    $scope.login = function() {
+        $http({
+            method: "POST",
+            url: "/api/login",
+            data: $scope.user
+        }).then(function(data) {
+            // Save the JWT to localStorage so we can use it later
+            localStorage.setItem('jwt', data.data.jwt);
+        }).catch(function(err){
+            console.log(err);
+            console.log("BAD THING ^^^");
+        });
+    }
+});
+	// window.scope = $scope;
+	// $scope.eventCategories = [""];
+
+	// $http.get("https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ&callback=initMap").then(function(response) {
+	// 	console.log("foo");
+	// 	$scope.map = response.data;
+	// 	$scope.initMap = function () {
+ //  			map = new google.maps.Map(document.getElementById('map'), {
+ //  				center: {lat: -34.397, lng: 150.644},
+ //   				zoom: 8
+ //   			});
+ //   		}
+	// });
+});
+
+app.controller('ApiCtrl', function($scope, $http, $timeout){
+	$timeout(function() { FB.api('/search', 'GET', {q: 'fun', type: 'event'}, function(data) { console.log(data)});
+	$http.get('https://www.eventbriteapi.com/v3/events/search/?q=fun&token=JIOZSXTUJLB6JV62IK5U').success(function(data){
+		console.log(data)
+	})
+	FB.api('/me',{
+		fields: 'first_name'
+	}, function(data) {
+		console.log(data)
+	})
+	}, 2000)
+})

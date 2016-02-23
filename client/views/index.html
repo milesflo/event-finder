@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="eventTracker">
 <head>
 	<title>Epic Events</title>
 	<!-- AngularJS -->
@@ -18,6 +18,37 @@
 	<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1007959409296857',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+    FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    console.log('Logged in.');
+  } else {
+	    FB.login(function() {}, {scope: 'user_events'});
+  }
+	});
+  };
+	(function(d, s, id){
+	 var js, fjs = d.getElementsByTagName(s)[0];
+	 if (d.getElementById(id)) {return;}
+	 js = d.createElement(s); js.id = id;
+	 js.src = "//connect.facebook.net/en_US/sdk.js";
+	 fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+	<div class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand">
+					<i class="fa fa-rebel text-danger"></i> Welcome
+				</a>
+			</div>
+		</div>
 
 <!-- HEADER -->
 	<nav class="navbar navbar-inverse" id='navbar'>
@@ -186,11 +217,15 @@
 
 
 
+	<div ng-view>
 
-<script type="text/javascript" src="/client/js/app.js"></script>
-<script type="text/javascript" src="/client/js/controllers.js"></script>
-<script type="text/javascript" src="/client/js/directives.js"></script>
-<script type="text/javascript" src="/client/js/filters.js"></script>
-<script type="text/javascript" src="/client/js/services.js"></script>
+	</div>
+
+
+	<script type="text/javascript" src="/client/js/app.js"></script>
+	<script type="text/javascript" src="/client/js/controllers.js"></script>
+	<script type="text/javascript" src="/client/js/directives.js"></script>
+	<script type="text/javascript" src="/client/js/filters.js"></script>
+	<script type="text/javascript" src="/client/js/services.js"></script>
 </body>
 </html>
