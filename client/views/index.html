@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="https://bootswatch.com/sandstone/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<!-- Css Page -->
-	<link rel="stylesheet" href="/client/css/style.css">
+	<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <script>
@@ -28,19 +28,18 @@
     FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
     console.log('Logged in.');
+  } else {
+	    FB.login(function() {}, {scope: 'user_events'});
   }
-  else {
-    FB.login(function() {}, {scope: 'user_events'});
-  }
-});
+	});
   };
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+	(function(d, s, id){
+	 var js, fjs = d.getElementsByTagName(s)[0];
+	 if (d.getElementById(id)) {return;}
+	 js = d.createElement(s); js.id = id;
+	 js.src = "//connect.facebook.net/en_US/sdk.js";
+	 fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
 </script>
 	<div class="navbar navbar-inverse">
 		<div class="container">
@@ -50,24 +49,183 @@
 				</a>
 			</div>
 		</div>
+
+<!-- HEADER -->
+	<nav class="navbar navbar-inverse" id='navbar'>
+  		<div class="container">
+    		<div class="navbar-header">
+     			<a class="navbar-brand" href="#" id='header'>
+     			<i class="fa fa-rebel text-primary"></i> Epic Events
+     			</a>
+    		</div>
+      		<ul class="nav navbar-nav navbar-right">
+		        <li><a href="#" id='homeButton'>Home</a></li>
+		        <li><a href="#" id='loginButton'>Login</a></li>
+		        <!-- <li><a href="#" id='signupButton'>Signup</a></li> -->
+
+      		</ul>
+  		</div>
+	</nav>
+
+<!-- IMAGE -->
+	<div class="container-fluid">
+		<img id='mainImg' src='http://static1.squarespace.com/static/52f3ba1fe4b0932b3f775421/t/530e5fa1e4b07a55c9b3d6ad/1393450915317/Beer+Die+Events.jpg?format=1500w' height='350px'>
+
+	<!-- SEARCH BAR -->
+		<div class='input-group' id='search-box'>
+	       	<form action="" method="" id='eventSearch'>
+	        	<label for="eventName"></label>
+	          	<input type="text" id='eventName' name="eventName" placeholder="   Search..." required>
+	          	<input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'>
+	      	</form>
+	        <div id="q-results" class="results"></div>
+	    </div>
 	</div>
+
+    <!-- CATEGORIES -->
+    <!-- music -->
+   
+    <div class='container'>
+     Music:
+	    <div class="row">
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail">
+		      		<img src="https://unsplash.it/300/200/?random" alt="...">
+		      		<div class="caption">
+		        		<h3>Thumbnail label</h3>
+		        		<p>...</p>
+		        		<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail">
+		      		<img src="https://unsplash.it/300/200/?random" alt="...">
+		      		<div class="caption">
+		        		<h3>Thumbnail label</h3>
+		        		<p>...</p>
+		        		<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail">
+		      		<img src="https://unsplash.it/300/200/?random" alt="...">
+		      		<div class="caption">
+		        		<h3>Thumbnail label</h3>
+		        		<p>...</p>
+		        		<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		      		</div>
+		    	</div>
+		  	</div>
+
+		</div>
+
+	<!-- sports -->
+	<div class='container'>
+	Sports:
+	    <div class="row">
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail">
+		      		<img src="https://unsplash.it/300/200/?random" alt="...">
+		      		<div class="caption">
+		        		<h3>Thumbnail label</h3>
+		        		<p>...</p>
+		        		<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail">
+		      		<img src="https://unsplash.it/300/200/?random" alt="...">
+		      		<div class="caption">
+		        		<h3>Thumbnail label</h3>
+		        		<p>...</p>
+		        		<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail">
+		      		<img src="https://unsplash.it/300/200/?random" alt="...">
+		      		<div class="caption">
+		        		<h3>Thumbnail label</h3>
+		        		<p>...</p>
+		        		<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		      		</div>
+		    	</div>
+		  	</div>
+
+		</div>
+	<!-- food -->
+	Food:
+	<div class='container'>
+	    <div class="row">
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail">
+		      		<img src="https://unsplash.it/300/200/?random" alt="...">
+		      		<div class="caption">
+		        		<h3>Thumbnail label</h3>
+		        		<p>...</p>
+		        		<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail">
+		      		<img src="https://unsplash.it/300/200/?random" alt="...">
+		      		<div class="caption">
+		        		<h3>Thumbnail label</h3>
+		        		<p>...</p>
+		        		<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		      		</div>
+		    	</div>
+		  	</div>
+		  	<div class="col-sm-6 col-md-3">
+		    	<div class="thumbnail">
+		      		<img src="https://unsplash.it/300/200/?random" alt="...">
+		      		<div class="caption">
+		        		<h3>Thumbnail label</h3>
+		        		<p>...</p>
+		        		<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		      		</div>
+		    	</div>
+		  	</div>
+
+		</div>
+
+
+		
+
+
+
+
+
+<!-- FOOTER -->
+	<div class="navbar navbar-fixed-bottom navbar-inverse">
+		<p id='footerText'>Cairo, David, Tum, Ana, Miles</p>
+	</div>
+
+
+	
+
+
+
+
+
+
+
+
 
 	<div ng-view>
 
-    </div>
-
-	<div class="navbar navbar-fixed-bottom navbar-inverse">
-		<div class="container">
-			<p class="navbar-text">Cairo, David, Tum, Ana, Miles</p>
-		</div>
 	</div>
+
 
 	<script type="text/javascript" src="/client/js/app.js"></script>
 	<script type="text/javascript" src="/client/js/controllers.js"></script>
 	<script type="text/javascript" src="/client/js/directives.js"></script>
 	<script type="text/javascript" src="/client/js/filters.js"></script>
 	<script type="text/javascript" src="/client/js/services.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ"></script>
-	<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
 </body>
 </html>

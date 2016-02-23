@@ -1,6 +1,5 @@
 var app = angular.module("eventTracker", ["ngRoute", "ngAnimate", "ngResource"]);
 
-
 app.config(function($routeProvider, $locationProvider, $httpProvider) {
 	$routeProvider
 	.when('/', {
@@ -44,5 +43,4 @@ app.service("AuthInterceptor", function($window,$location,$q){
     }
   };
 });
-
 
