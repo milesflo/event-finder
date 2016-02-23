@@ -9,14 +9,14 @@ module.exports = function(passport) {
 			var email = user.email;
 			var id = user.id;
 		}
-		Knex('users').where({email: email, id: id}).then(function() {
-			done(null, user)
-		})
-	})
+		Knex('users').where({id: id}).then(function() {
+			done(null, user);
+		});
+	});
 
 	passport.deserializeUser(function(user, done) {
-		Knex('users').where({ id: user.id })
+		Knex('users').where({ id: user.id });
 		done(null, user);
-	})
+	});
 	
-}
+};

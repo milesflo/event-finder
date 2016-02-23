@@ -27,7 +27,7 @@ passport.serializeUser(function(user, done) {
 	passport.use(new FacebookStrategy({
 		clientID: process.env.FBCLIENTID,
 		clientSecret: process.env.FBCLIENTSECRET,
-		callbackURL: 'https://guarded-brook-11081.herokuapp.com/auth/facebook/callback'
+		callbackURL: 'http://localhost:3000'
 	},
 	function(token, refreshToken, profile, done) {
 		console.log(profile);
