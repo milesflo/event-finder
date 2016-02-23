@@ -3,16 +3,19 @@
 }
 */
 
+/*body{
+	background-image: url(http://eventlist.wemakemedia.cz/wp-content/uploads/2015/11/background_02.jpg)
+}*/
+
 #header{
 	color: white;
 	font-size: 35px;
 }
 
-
 #homeButton{
 	color: white;
 	background-color: #93c54b;
-	/*border: 2px solid black;*/
+	font-size: 15px;
 	margin-top: 40%;
 	margin-right: 8%;
 	padding-top: 2px;
@@ -22,7 +25,7 @@
 #loginButton{
 	color: white;
 	background-color: #93c54b;
-	/*border: 2px solid black;*/
+	font-size: 15px;
 	margin-top: 40%;
 	margin-right: 8%;
 	padding-top: 2px;
@@ -32,15 +35,57 @@
 #signupButton{
 	color: white;
 	background-color: #93c54b;
-	/*border: 2px solid black;*/
+	font-size: 15px;
 	margin-top: 36%;
 	padding-top: 2px;
 	padding-bottom: 2px;
 }
 
-#navButtons{
 
+#mainImg{
+	width: 100%;
 }
 
+#navbar{
+	margin-bottom: 0px;
+}
+
+#search-box{
+	margin-top: 20px;
+	margin-left: 33%;
+}
+
+#eventName{
+	width: 500px;
+	height: 38px;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+/*#placeHolders{
+	margin-top: 20px;
+	margin-left: 8%;
+}
+*/
+/*img{
+	margin-left: 5%;
+}
+*/
+
+
+
+
+#footerText{
+	/*margin-top: 10%;*/
+	color: white;
+	text-align: center;
+	/*padding-top: 10%;*/
+}
 
 
