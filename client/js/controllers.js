@@ -12,8 +12,8 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     	console.log(query);
         EVDB.API.call("/events/search", oArgs, function(response) {
             console.log(query, response);
-        })
-    }
+        });
+    };
 
 
     // $scope.initMap = function () {
@@ -28,24 +28,6 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
 
 
 app.controller('LoginController', function($scope, $http) {
-<<<<<<< HEAD
-    // $scope.user = {};
-    // $scope.posts = [];
-
-    // $scope.login = function() {
-    //     $http({
-    //         method: "POST",
-    //         url: "/api/login",
-    //         data: $scope.user
-    //     }).then(function(data) {
-    //         // Save the JWT to localStorage so we can use it later
-    //         localStorage.setItem('jwt', data.data.jwt);
-    //     }).catch(function(err){
-    //         console.log(err);
-    //         console.log("BAD THING ^^^");
-    //     });
-    // }
-=======
     $scope.user = {};
     $scope.posts = [];
 
@@ -62,11 +44,10 @@ app.controller('LoginController', function($scope, $http) {
             console.log("BAD THING ^^^");
         });
     }
->>>>>>> 939508e037079bb3a2c9e16406c7cbd70fed450c
 });
 
 app.controller('ApiCtrl', function($scope, $http, $timeout){
-    $timeout(function() { FB.api('/search', 'GET', {q: 'fun', type: 'event'}, function(data) { console.log(data)});
+	$timeout(function() { FB.api('/search', 'GET', {q: 'fun', type: 'event'}, function(data) { console.log(data)});
     $http.get('https://www.eventbriteapi.com/v3/events/search/?q=fun&token=JIOZSXTUJLB6JV62IK5U').success(function(data){
         console.log(data);
     });
@@ -74,6 +55,6 @@ app.controller('ApiCtrl', function($scope, $http, $timeout){
         fields: 'first_name'
     }, function(data) {
         console.log(data)
-    });
-    }, 2000);
+	})
+	}, 2000)
 });
