@@ -21,7 +21,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-	Knex('users').where({ id: user.id }).then(function(user, err) {
+	knex('users').where({ id: user.id }).then(function(user, err) {
 		done(err, user);
 	});
 });
@@ -33,9 +33,9 @@ passport.use(new FacebookStrategy({
 	callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	function(token, refreshToken, profile, done) {
-		console.log(profile + "HERE!!!!");
+		console.log(profile);
 		process.nextTick(function() {
-			Knex('users').where({facebook_id: profile.id}).then(function(user, err) {
+			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
 					done(err);
 				if(user[0]) {
