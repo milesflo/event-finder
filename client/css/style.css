@@ -146,8 +146,9 @@
 	width: 100%;
 }
 
-#ourNames{
+#footerText{
 	color: white;
+	text-align: center;
 }
 
 #signupLabel{
