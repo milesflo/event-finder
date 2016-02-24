@@ -6,10 +6,9 @@ var express 			= require("express"),
 	path 				= require('path'),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
-	FacebookStrategy	= require('passport-facebook').Strategy;
-
-require('dotenv').load();
-
+	FacebookStrategy	= require('passport-facebook').Strategy,
+    dotenv              = require('dotenv').load();
+var worker = require('./worker.js');
 app.use(passport.initialize());
 
 passport.serializeUser(function(user, done) {
@@ -65,8 +64,12 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api/users', routes.users);
 
 app.get('/', function(req,res){
-  res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
+	res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
+
+app.get('/apiGet', function(req,res) {
+	worker.eventFulSearch(req.query);
+})
 app.use(passport.initialize());
 app.use(passport.session());
 
