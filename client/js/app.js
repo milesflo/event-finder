@@ -1,4 +1,4 @@
-var app = angular.module("eventTracker", ["ngRoute", "ngAnimate", "ngResource"]);
+app = angular.module("eventTracker", ["ngRoute", "ngAnimate", "ngResource"]);
 
 app.config(function($routeProvider, $locationProvider, $httpProvider) {
 	$routeProvider
@@ -22,7 +22,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 	    templateUrl: "/client/templates/signup.html",
 	    controller: "SignupController",
    	})
- //  	.otherwise({
+    // .otherwise({
 	// 	redirectTo: "/"
 	// });
 
@@ -35,7 +35,6 @@ app.service("AuthInterceptor", function($window,$location,$q){
   return {
     request: function(config){
       var token = localStorage.getItem('jwt');
-      
       // If the JWT exists in local storage, add an authorization header
       if(token) config.headers.Authorization = 'Bearer ' + token;
 
@@ -43,4 +42,5 @@ app.service("AuthInterceptor", function($window,$location,$q){
     }
   };
 });
+
 

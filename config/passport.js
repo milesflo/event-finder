@@ -1,22 +1,30 @@
-var local = require('passport-local').Strategy;
-var Knex = require('../db/knex.js');
-var locus = require('locus');
+var express = require('express');
+var router = express.Router();
+var passport = require('passport');
+var knex = require('../db/knex');
+
+outer.get('/facebook',
+  passport.authenticate('facebook'),
+  function(req, res){
+
+  });
+
+router.get('/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication
+    console.log(req.user.facebook_id);
+    if(req.isAuthenticated()){
+      console.log("I am authenticated");
+    }
+    res.cookie('userID', req.user.id, { signed: true });
+    res.redirect('/users/profile');
+  });
+
+router.get('/logout', function(req, res){
+  res.clearCookie('userID');
+  res.redirect('/');
+});
 
 
-module.exports = function(passport) {
-	passport.serializeUser(function(user, done) {
-		if(user){
-			var email = user.email;
-			var id = user.id;
-		}
-		Knex('users').where({id: id}).then(function() {
-			done(null, user);
-		});
-	});
-
-	passport.deserializeUser(function(user, done) {
-		Knex('users').where({ id: user.id });
-		done(null, user);
-	});
-	
-};
+module.exports = router;

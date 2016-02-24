@@ -1,9 +1,77 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>DASHBOARD</title>
-</head>
-<body>
+<!-- <input type="text" id="query" ng-model="query"></input>
+<p>{{query}}</p>
+<button ng-click="redirect(query)">Query #1</button> <br>
+<div id="map" style="height:300px"></div>
+ -->
+
+
+
+<!-- IMAGE -->
+	<div class='container' id='displayFormat'>
+		<div class="container-fluid">
+			<img id='mainImg' src='http://static1.squarespace.com/static/52f3ba1fe4b0932b3f775421/t/530e5fa1e4b07a55c9b3d6ad/1393450915317/Beer+Die+Events.jpg?format=1500w' height='350px'>
+
+<!-- SEARCH BAR -->
+			<div class='input-group' id='search-box'>
+		       	<form ng-submit="redirect(query)" id='eventSearch'>
+		        	<label for="eventName"></label>
+		          	<input type="text" id='eventName' name="eventName" placeholder=" Search..." ng-model="query"required >
+		          	<input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'>
+		      	</form>
+		        <div id="q-results" class="results"></div>
+		    </div>
+		</div>
+
+<!-- CATEGORIES -->
+
+	    <!-- my events -->
+	    <div class='container'>
+	    	<h4 id='myEventsLabel'> <strong> MY EVENTS: </strong> </h4>
+			    <div class="row" id='myEventsCategory'>
+				  	<div class="col-sm-3 col-md-4">
+				    	<div class="thumbnail">
+				      		<img src="https://unsplash.it/400/300/?random" alt="...">
+				      		<div class="caption">
+				        		<h4 id='thumbnailLabel'>Thumbnail Label</h4>
+				        		<p>...</p>
+				        		<p>
+				        			<a href="#" id='removeBtn' class="btn btn-primary" role="button">Remove</a> 
+				        		</p>
+				      		</div>
+				    	</div>
+				  	</div>
+				  	<div class="col-sm-3 col-md-4">
+				    	<div class="thumbnail">
+				      		<img src="https://unsplash.it/400/300/?random" alt="...">
+				      		<div class="caption">
+				        		<h4 id='thumbnailLabel'>Thumbnail Label</h4>
+				        		<p>...</p>
+				        		<p>
+				        			<a href="#" id='removeBtn' class="btn btn-primary" role="button">Remove</a> 
+				        		</p>
+				      		</div>
+				    	</div>
+				  	</div>
+				  	<div class="col-sm-3 col-md-4">
+				    	<div class="thumbnail">
+				      		<img src="https://unsplash.it/400/300/?random" alt="...">
+				      		<div class="caption">
+				        		<h4 id='thumbnailLabel'>Thumbnail Label</h4>
+				        		<p>...</p>
+				        		<p>
+				        			<a href="#" id='removeBtn' class="btn btn-primary" role="button">Remove</a> 
+				        		</p>
+				      		</div>
+				    	</div>
+				  	</div>
+
+				</div>
+
+			<!-- popular -->
+			<h4 id='popLabel'> <strong> POPULAR: </strong></h4>
+			    
+		</div>
+	</div>
 
 </body>
 </html>
