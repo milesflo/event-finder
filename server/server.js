@@ -1,33 +1,34 @@
 var express = require("express"),
-	app = express(),
-	bodyParser = require("body-parser"),
-	morgan = require("morgan"),
-	routes = require('./routes'),
-	path = require('path');
-var passport 			= require('passport');
-var FacebookStrategy	= require('passport-facebook').Strategy;
+	app 				= express(),
+	bodyParser 			= require("body-parser"),
+	morgan 				= require("morgan"),
+	routes 				= require('./routes'),
+	path 				= require('path');
+	passport 			= require('passport');
+	FacebookStrategy	= require('passport-facebook').Strategy;
 
 require('dotenv').load();
 
 passport.serializeUser(function(user, done) {
-		if(user[0] === undefined){
-			done(null, user);
-		} else {
-			done(null, user[0]);
-		}
+	console.log(user)
+	if(user[0] === undefined){
+		done(null, user);
+	} else {
+		done(null, user[0]);
+	}
+});
+
+passport.deserializeUser(function(user, done) {
+	Knex('users').where({ id: user.id }).then(function(user, err) {
+		done(err, user);
 	});
-
-	passport.deserializeUser(function(user, done) {
-		Knex('users').where({ id: user.id }).then(function(user, err) {
-			done(err, user);
-		});
-	});
+});
 
 
-	passport.use(new FacebookStrategy({
-		clientID: process.env.FBCLIENTID,
-		clientSecret: process.env.FBCLIENTSECRET,
-		callbackURL: 'http://localhost:3000'
+passport.use(new FacebookStrategy({
+	clientID: process.env.FBCLIENTID,
+	clientSecret: process.env.FBCLIENTSECRET,
+	callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	function(token, refreshToken, profile, done) {
 		console.log(profile + "HERE!!!!");
@@ -63,6 +64,8 @@ app.use('/api/users', routes.users);
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
+app.use(passport.initialize());
+app.use(passport.session());
 
 require('./routes/users.js')(app,passport);
 

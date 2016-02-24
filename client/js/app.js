@@ -22,7 +22,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 	    templateUrl: "/client/templates/signup.html",
 	    controller: "SignupController",
    	})
- //  	.otherwise({
+    // .otherwise({
 	// 	redirectTo: "/"
 	// });
 

@@ -46,14 +46,5 @@ app.controller('LoginController', function($scope, $http) {
 });
 
 app.controller('ApiCtrl', function($scope, $http, $timeout){
-	$timeout(function() { FB.api('/search', 'GET', {q: 'fun', type: 'event'}, function(data) { console.log(data)});
-	$http.get('https://www.eventbriteapi.com/v3/events/search/?q=fun&token=JIOZSXTUJLB6JV62IK5U').success(function(data){
-		console.log(data)
-	})
-	FB.api('/me',{
-		fields: 'first_name'
-	}, function(data) {
-		console.log(data)
-	})
-	}, 2000)
+	
 })
