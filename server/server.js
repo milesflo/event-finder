@@ -6,9 +6,16 @@ var express 			= require("express"),
 	path 				= require('path'),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
+<<<<<<< HEAD
 	FacebookStrategy	= require('passport-facebook').Strategy,
     dotenv              = require('dotenv').load();
 var worker = require('./worker.js');
+=======
+	FacebookStrategy	= require('passport-facebook').Strategy;
+
+	require('dotenv').load();
+
+>>>>>>> 190391266567b7cdc9718626fabff6fb09d80526
 app.use(passport.initialize());
 
 passport.serializeUser(function(user, done) {
@@ -20,11 +27,10 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-	Knex('users').where({ id: user.id }).then(function(user, err) {
+	knex('users').where({ id: user.id }).then(function(user, err) {
 		done(err, user);
 	});
 });
-
 
 passport.use(new FacebookStrategy({
 	clientID: process.env.FBCLIENTID,
@@ -32,9 +38,9 @@ passport.use(new FacebookStrategy({
 	callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	function(token, refreshToken, profile, done) {
-		console.log(profile + "HERE!!!!");
+		console.log(profile);
 		process.nextTick(function() {
-			Knex('users').where({facebook_id: profile.id}).then(function(user, err) {
+			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
 					done(err);
 				if(user[0]) {
@@ -51,8 +57,6 @@ passport.use(new FacebookStrategy({
 	}
 ));
 
-
-
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
@@ -67,9 +71,12 @@ app.get('/', function(req,res){
 	res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
 
+<<<<<<< HEAD
 app.get('/apiGet', function(req,res) {
 	worker.eventFulSearch(req.query);
 })
+=======
+>>>>>>> 190391266567b7cdc9718626fabff6fb09d80526
 app.use(passport.initialize());
 app.use(passport.session());
 
