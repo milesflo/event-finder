@@ -8,7 +8,7 @@ var express 			= require("express"),
 	passport 			= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy;
 
-require('dotenv').load();
+	require('dotenv').load();
 
 app.use(passport.initialize());
 
@@ -25,7 +25,6 @@ passport.deserializeUser(function(user, done) {
 		done(err, user);
 	});
 });
-
 
 passport.use(new FacebookStrategy({
 	clientID: process.env.FBCLIENTID,
@@ -52,8 +51,6 @@ passport.use(new FacebookStrategy({
 	}
 ));
 
-
-
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
@@ -67,6 +64,7 @@ app.use('/api/users', routes.users);
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
+
 app.use(passport.initialize());
 app.use(passport.session());
 

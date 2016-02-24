@@ -1,4 +1,4 @@
-/*body{
+/*/*body{
 	background-color: red;
 }
 */
@@ -6,6 +6,11 @@
 /*body{
 	background-image: url(http://eventlist.wemakemedia.cz/wp-content/uploads/2015/11/background_02.jpg)
 }*/
+
+.navbar {
+	border-radius: 0;
+	margin: 0;
+}
 
 #displayFormat {
  display: block;
