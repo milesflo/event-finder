@@ -7,8 +7,10 @@ var express 			= require("express"),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy,
-    dotenv              = require('dotenv').load();
-var worker = require('./worker.js');
+    worker              = require('./worker.js');
+
+
+require('dotenv').load();
 app.use(passport.initialize());
 
 passport.serializeUser(function(user, done) {
