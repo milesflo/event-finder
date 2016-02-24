@@ -11,8 +11,8 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     $scope.redirect = function(query) {
         EVDB.API.call("/events/search", oArgs, function(response) {
             console.log(query, response);
-        })
-    }
+        });
+    };
 
 
     $scope.initMap = function () {
@@ -20,7 +20,7 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
                 center: {lat: -34.397, lng: 150.644},
                 zoom: 8
             });
-    }
+    };
 
     $scope.initMap();
 });
@@ -42,18 +42,18 @@ app.controller('LoginController', function($scope, $http) {
             console.log(err);
             console.log("BAD THING ^^^");
         });
-    }
+    };
 });
 
 app.controller('ApiCtrl', function($scope, $http, $timeout){
 	$timeout(function() { FB.api('/search', 'GET', {q: 'fun', type: 'event'}, function(data) { console.log(data)});
 	$http.get('https://www.eventbriteapi.com/v3/events/search/?q=fun&token=JIOZSXTUJLB6JV62IK5U').success(function(data){
-		console.log(data)
-	})
+		console.log(data);
+	});
 	FB.api('/me',{
 		fields: 'first_name'
 	}, function(data) {
 		console.log(data)
-	})
-	}, 2000)
-})
+	});
+	}, 2000);
+});
