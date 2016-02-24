@@ -19,30 +19,22 @@
 
 #header{
 	color: white;
-	font-size: 35px;
 }
 
-#homeButton{
-	color: white;
-	background-color: #93c54b;
-	font-size: 15px;
-	margin-top: 40%;
-	margin-right: 8%;
-	padding-top: 2px;
-	padding-bottom: 2px;
+.navbar-brand{
+	font-size: 35px;
 }
 
 #loginButton{
 	color: white;
 	background-color: #93c54b;
 	font-size: 15px;
-	margin-top: 40%;
-	margin-right: 8%;
+	margin-top: 27%;
 	padding-top: 2px;
 	padding-bottom: 2px;
 }
 
-#editProfileBtn{
+#logout{
 	color: white;
 	background-color: #93c54b;
 	font-size: 15px;
@@ -51,19 +43,9 @@
 	padding-top: 2px;
 	padding-bottom: 2px;
 }
-
-#signupButton{
-	color: white;
-	background-color: #93c54b;
-	font-size: 15px;
-	margin-top: 36%;
-	padding-top: 2px;
-	padding-bottom: 2px;
-}
-
 
 #mainImg{
-	width: 100%;
+	width: 1150px;
 }
 
 #navbar{
@@ -73,6 +55,7 @@
 #search-box{
 	margin-top: 20px;
 	margin-left: 33%;
+	margin-bottom: 2%;	
 }
 
 #eventName{
@@ -88,20 +71,55 @@
     border-radius: 4px;
 }
 
-/*#placeHolders{
-	margin-top: 20px;
-	margin-left: 8%;
-}
-*/
-/*img{
-	margin-left: 5%;
-}
-*/
 
 #musicCategory{
-	margin-bottom: 70px;
+	margin-bottom: 20px;
 }
 
+
+#musicLabel{
+	text-align: center;
+}
+
+#sportsLabel{
+	text-align: center;
+}
+
+#foodLabel{
+	text-align: center;
+}
+
+#myEventsLabel{
+	text-align: center;
+}
+
+#myEventsCategory{
+	margin-bottom: 20px;
+}
+
+#thumbnailLabel{
+	text-align: center;
+}
+
+#thumbnailBtn{
+	margin-left: 82%;
+	font-size: 9px;
+	margin-top: 27%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#removeBtn{
+	margin-left: 78%;
+	font-size: 9px;
+	margin-top: 27%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#popLabel{
+	text-align: center;
+}
 
 
 #footer{
