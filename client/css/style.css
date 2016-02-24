@@ -1,7 +1,14 @@
 #displayFormat {
  display: block;
  margin: 0 auto;
+ width: 100%;
 };
+
+#firstScroller{
+	/*display: block;
+	margin: 0 auto;*/
+ 	width: 1600px;
+}
 
 #header{
 	color: white;
@@ -11,11 +18,20 @@
 	font-size: 35px;
 }
 
+#homeButton{
+	color: white;
+	/*background-color: #93c54b;*/
+	font-size: 15px;
+	margin-top: 40%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
 #loginButton{
 	color: white;
-	background-color: #93c54b;
+	/*background-color: #93c54b;*/
 	font-size: 15px;
-	margin-top: 27%;
+	margin-top: 42%;
 	padding-top: 2px;
 	padding-bottom: 2px;
 }
@@ -60,6 +76,7 @@
 
 #musicCategory{
 	margin-bottom: 20px;
+	width: 100%;
 }
 
 
@@ -118,3 +135,73 @@
 #ourNames{
 	color: white;
 }
+
+/* ============================================================
+  SECTIONS
+============================================================ */
+section.module:last-child {
+   margin-bottom: 0;
+}
+section.module h2 {
+  margin-bottom: 40px;
+  font-family: "Roboto Slab", serif;
+  font-size: 30px;
+}
+section.module p {
+  margin-bottom: 40px;
+  font-size: 16px;
+  font-weight: 300;
+}
+section.module p:last-child {
+  margin-bottom: 0;
+}
+section.module.content {
+  padding: 40px 0;
+}
+section.module.parallax {
+  height: 600px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+section.module.parallax h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 48px;
+  line-height: 600px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+section.module.parallax-1 {
+  background-image: url('../images/concertPic.jpg');
+	/*width: 1600px;*/
+}
+section.module.parallax-2 {
+  background-image: url("../images/eatdrinkSF_interior_bright.jpg");
+}
+section.module.parallax-3 {
+  background-image: url("../images/giants_fans.jpg");
+}
+
+@media all and (min-width: 600px) {
+  section.module h2 {
+    font-size: 42px;
+  }
+  section.module p {
+    font-size: 20px;
+  }
+  section.module.parallax h1 {
+    font-size: 96px;
+  }
+}
+@media all and (min-width: 960px) {
+  section.module.parallax h1 {
+    font-size: 160px;
+  }
+}
+

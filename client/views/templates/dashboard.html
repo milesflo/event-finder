@@ -3,50 +3,16 @@
 <button ng-click="redirect(query)">Query #1</button> <br>
 <div id="map" style="height:300px"></div>
  -->
-<!DOCTYPE html>
-<html ng-app="eventTracker">
-<head>
-	<title>Epic Events</title>
-	<!-- AngularJS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
-	<!-- jQuery -->
-	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
-	<!-- Google -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ"></script>
-	<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
-	<!-- bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://bootswatch.com/sandstone/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<!-- Css Page -->
-	<link rel="stylesheet" href="/client/css/style.css">
-</head>
-
 
 <!-- IMAGE -->
-	<div class='container' id='displayFormat'>
+	<div class='container-fluid' id='displayFormat'>
 		<div class="container-fluid">
 			<img id='mainImg' src='http://static1.squarespace.com/static/52f3ba1fe4b0932b3f775421/t/530e5fa1e4b07a55c9b3d6ad/1393450915317/Beer+Die+Events.jpg?format=1500w' height='350px'>
-
-<!-- SEARCH BAR -->
-			<div class='input-group' id='search-box'>
-		       	<form ng-submit="redirect(query)" id='eventSearch'>
-		        	<label for="eventName"></label>
-		          	<input type="text" id='eventName' name="eventName" placeholder=" Search..." ng-model="query"required >
-		          	<input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'>
-		      	</form>
-		        <div id="q-results" class="results"></div>
-		    </div>
-		</div>
 
 <!-- CATEGORIES -->
 
 	    <!-- my events -->
-	    <div class='container'>
+	    <div class='container-fluid'>
 	    	<h4 id='myEventsLabel'> <strong> MY EVENTS: </strong> </h4>
 			    <div class="row" id='myEventsCategory'>
 				  	<div class="col-sm-3 col-md-4">
@@ -85,12 +51,10 @@
 				      		</div>
 				    	</div>
 				  	</div>
-
 				</div>
 
 			<!-- popular -->
-			<h4 id='popLabel'> <strong> POPULAR: </strong></h4>
-			    
+			<h4 id='popLabel'> <strong> POPULAR: </strong></h4>	    
 		</div>
 	</div>
 

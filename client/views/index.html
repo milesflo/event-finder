@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
 	<!-- bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://bootswatch.com/sandstone/bootstrap.min.css">
+	<link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<!-- Css Page -->
 	<link rel="stylesheet" href="/client/css/style.css">
@@ -23,10 +23,10 @@
 <body>
 <!-- HEADER -->
 	<nav class="navbar navbar-inverse" id='navbar'>
-  		<div class="container">
+  		<div class="container-fluid">
     		<div class="navbar-header">
      			<a class="navbar-brand" href="#" id='header'>
-     			<i class="fa fa-rebel text-primary"></i> Epic Events
+     				<i class="fa fa-rebel text-primary"></i> Epic Events
      			</a>
     		</div>
       		<ul class="nav navbar-nav navbar-right">
@@ -35,18 +35,24 @@
       		</ul>
   		</div>
 	</nav>
+	<!-- SEARCH BAR -->
+	<div class='input-group' id='search-box'>
+       	<form ng-submit="redirect(query)" id='eventSearch'>
+        	<label for="eventName"></label>
+          	<input type="text" id='eventName' name="eventName" placeholder=" Search..." ng-model="query"required >
+          	<input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'>
+      	</form>
+        <div id="q-results" class="results"></div>
+    </div>
 
-	<div ng-view>
-		
-	</div>
+
+	<!-- ng-view declaration -->
+	<div ng-view> </div>
 
 <!-- FOOTER -->
 	<div class="navbar navbar-fixed-bottom navbar-inverse">
 		<p id='footerText'>Cairo, David, Tum, Ana, Miles</p>
 	</div>
-
-
-
 
 	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ"></script> -->
 	<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
@@ -57,5 +63,6 @@
 	<script type="text/javascript" src="/client/js/services.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ"></script>
 	<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
+
 </body>
 </html>
