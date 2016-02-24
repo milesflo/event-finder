@@ -2,6 +2,7 @@
 <html ng-app="eventTracker">
 <head>
 	<title>Epic Events</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<!-- AngularJS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
@@ -21,6 +22,7 @@
 	<link rel="stylesheet" href="/client/css/style.css">
 </head>
 <body>
+
 <!-- HEADER -->
 	<nav class="navbar navbar-inverse" id='navbar'>
   		<div class="container-fluid">
@@ -35,6 +37,7 @@
       		</ul>
   		</div>
 	</nav>
+
 	<!-- SEARCH BAR -->
 	<div class='input-group' id='search-box'>
        	<form ng-submit="redirect(query)" id='eventSearch'>
@@ -50,11 +53,15 @@
 	<div ng-view> </div>
 
 <!-- FOOTER -->
-	<div class="navbar navbar-fixed-bottom navbar-inverse">
+	<div class="navbar navbar-fixed-bottom navbar-inverse" id='footer'>
 		<p id='footerText'>Cairo, David, Tum, Ana, Miles</p>
 	</div>
 
 	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ"></script> -->
+
+	</div>
+
+	<!-- scripts -->
 	<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
 	<script type="text/javascript" src="/client/js/app.js"></script>
 	<script type="text/javascript" src="/client/js/controllers.js"></script>

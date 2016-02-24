@@ -8,7 +8,7 @@ var express 			= require("express"),
 	passport 			= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy;
 
-require('dotenv').load();
+	require('dotenv').load();
 
 app.use(passport.initialize());
 
@@ -20,22 +20,21 @@ passport.serializeUser(function(user, done) {
 	}
 });
 
-	passport.deserializeUser(function(user, done) {
-		knex('users').where({ id: user.id }).then(function(user, err) {
-			done(err, user);
-		});
+passport.deserializeUser(function(user, done) {
+	knex('users').where({ id: user.id }).then(function(user, err) {
+		done(err, user);
 	});
-
+});
 
 passport.use(new FacebookStrategy({
 	clientID: process.env.FBCLIENTID,
 	clientSecret: process.env.FBCLIENTSECRET,
 	callbackURL: 'http://localhost:3000/auth/facebook/callback'
-},
+	},
 	function(token, refreshToken, profile, done) {
-		console.log(profile + "HERE!!!!");
+		console.log(profile);
 		process.nextTick(function() {
-			Knex('users').where({facebook_id: profile.id}).then(function(user, err) {
+			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
 					done(err);
 				if(user[0]) {
@@ -52,8 +51,6 @@ passport.use(new FacebookStrategy({
 	}
 ));
 
-
-
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
@@ -67,6 +64,9 @@ app.use('/api/users', routes.users);
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 require('./routes/users.js')(app,passport);
 
