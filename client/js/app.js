@@ -1,4 +1,4 @@
-var app = angular.module("eventTracker", ["ngRoute", "ngAnimate", "ngResource"]);
+app = angular.module("eventTracker", ["ngRoute", "ngAnimate", "ngResource"]);
 
 app.config(function($routeProvider, $locationProvider, $httpProvider) {
 	$routeProvider
@@ -21,7 +21,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
   	.when('/signup',{
 	    templateUrl: "/client/templates/signup.html",
 	    controller: "SignupController",
-  	})
+   	})
   	.otherwise({
 		redirectTo: "/"
 	});
@@ -43,4 +43,5 @@ app.service("AuthInterceptor", function($window,$location,$q){
     }
   };
 });
+
 
