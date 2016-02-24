@@ -45,9 +45,9 @@
 
 		<!-- SEARCH BAR -->
 			<div class='input-group' id='search-box'>
-		       	<form action="" method="" id='eventSearch'>
+		       	<form ng-submit="redirect(query)" id='eventSearch'>
 		        	<label for="eventName"></label>
-		          	<input type="text" id='eventName' name="eventName" placeholder="   Search..." required>
+		          	<input type="text" id='eventName' name="eventName" placeholder=" Search..." ng-model="query"required >
 		          	<input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'>
 		      	</form>
 		        <div id="q-results" class="results"></div>
