@@ -1,12 +1,6 @@
 app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     window.scope = $scope;
     $scope.eventCategories = [""];
-    // var oArgs = {
-    //         app_key:   "QfMJMhDnc8BXXWC6",
-    //         id:        "20218701",
-    //         page_size: 25 ,
-    //         q:         $scope.query,
-    //     };
 
     $scope.redirect = function(query) {
     	$http.get("/apiGet?q="+query);
