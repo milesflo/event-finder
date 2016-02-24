@@ -11,15 +11,14 @@ eventfulSearch = function(query) {
 
         }
 
-        console.log(data.search);
         console.log('Recieved ' + data.search.total_items + ' events');
 
         console.log('Event listings: ');
 
           //print the title of each event
-        for(var i in data.search.events){
+        for(var i in data.search.events.event){
 
-            console.log(data.search.events[i]);
+            console.log(data.search.events.event[i].title);
 
         }
     });
