@@ -9,7 +9,7 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
         };
 
     $scope.redirect = function(query) {
-    	console.log(query);
+        console.log(query);
         EVDB.API.call("/events/search", oArgs, function(response) {
             console.log(query, response);
         });
