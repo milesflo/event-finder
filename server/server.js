@@ -31,7 +31,11 @@ passport.deserializeUser(function(user, done) {
 		callbackURL: 'http://localhost:3000'
 	},
 	function(token, refreshToken, profile, done) {
+<<<<<<< HEAD
 		
+=======
+		console.log(profile + "HERE!!!!");
+>>>>>>> 939508e037079bb3a2c9e16406c7cbd70fed450c
 		process.nextTick(function() {
 			console.log(profile)
 			Knex('users').where({facebook_id: profile.id}).then(function(user, err) {
@@ -57,7 +61,7 @@ app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
 
-app.use(morgan('tiny'));
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 

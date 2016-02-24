@@ -9,24 +9,26 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
         };
 
     $scope.redirect = function(query) {
+    	console.log(query);
         EVDB.API.call("/events/search", oArgs, function(response) {
             console.log(query, response);
         })
     }
 
 
-    $scope.initMap = function () {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 8
-            });
-    }
+    // $scope.initMap = function () {
+    //         map = new google.maps.Map(document.getElementById('map'), {
+    //             center: {lat: -34.397, lng: 150.644},
+    //             zoom: 8
+    //         });
+    // }
 
-    $scope.initMap();
+    // $scope.initMap();
 });
 
 
 app.controller('LoginController', function($scope, $http) {
+<<<<<<< HEAD
     // $scope.user = {};
     // $scope.posts = [];
 
@@ -43,6 +45,24 @@ app.controller('LoginController', function($scope, $http) {
     //         console.log("BAD THING ^^^");
     //     });
     // }
+=======
+    $scope.user = {};
+    $scope.posts = [];
+
+    $scope.login = function() {
+        $http({
+            method: "POST",
+            url: "/api/login",
+            data: $scope.user
+        }).then(function(data) {
+            // Save the JWT to localStorage so we can use it later
+            localStorage.setItem('jwt', data.data.jwt);
+        }).catch(function(err){
+            console.log(err);
+            console.log("BAD THING ^^^");
+        });
+    }
+>>>>>>> 939508e037079bb3a2c9e16406c7cbd70fed450c
 });
 
 app.controller('ApiCtrl', function($scope, $http, $timeout){
