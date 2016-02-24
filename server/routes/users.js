@@ -1,5 +1,4 @@
 var express = require("express"),
-	
     path = require('path'),
     jwt = require('jsonwebtoken'),
     bodyParser = require("body-parser"),
@@ -17,5 +16,4 @@ module.exports = function(app,passport){
             scope : 'email'
         })
     );
-}
-
+};

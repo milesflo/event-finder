@@ -1,4 +1,4 @@
-var app = angular.module("eventTracker", ["ngRoute", "ngAnimate", "ngResource"]);
+app = angular.module("eventTracker", ["ngRoute", "ngAnimate", "ngResource"]);
 
 app.config(function($routeProvider, $locationProvider, $httpProvider) {
 	$routeProvider
@@ -25,7 +25,6 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
     // .otherwise({
 	// 	redirectTo: "/"
 	// });
-
 	// $locationProvider.html5Mode(true);
 	// Registed the interceptor for our application
   	$httpProvider.interceptors.push("AuthInterceptor");
@@ -43,4 +42,5 @@ app.service("AuthInterceptor", function($window,$location,$q){
     }
   };
 });
+
 

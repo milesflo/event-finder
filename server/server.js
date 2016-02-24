@@ -1,16 +1,18 @@
-var express = require("express"),
+var express 			= require("express"),
 	app 				= express(),
 	bodyParser 			= require("body-parser"),
 	morgan 				= require("morgan"),
 	routes 				= require('./routes'),
-	path 				= require('path');
-	passport 			= require('passport');
+	path 				= require('path'),
+	knex 				= require('../db/knex'),
+	passport 			= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy;
 
 require('dotenv').load();
 
+app.use(passport.initialize());
+
 passport.serializeUser(function(user, done) {
-	console.log(user)
 	if(user[0] === undefined){
 		done(null, user);
 	} else {
@@ -39,8 +41,8 @@ passport.use(new FacebookStrategy({
 				if(user[0]) {
 					return done(null, user[0]);
 				} else {
-					Knex('users').insert({facebook_id: profile.id, password: token, username: profile.displayName, email: profile.emails}).then(function() {
-						Knex('users').where({facebook_id: profile.id}).then(function(data) {
+					knex('users').insert({facebook_id: profile.id, username: profile.displayName}).then(function() {
+						knex('users').where({facebook_id: profile.id}).then(function(data) {
 							return done(null, data[0]);
 						});
 					});
@@ -49,6 +51,8 @@ passport.use(new FacebookStrategy({
 		});
 	}
 ));
+
+
 
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
@@ -59,7 +63,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/api/users', routes.users);
-// app.use('/api/todos', routes.todos);
 
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));

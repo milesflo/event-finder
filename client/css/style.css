@@ -7,6 +7,11 @@
 	background-image: url(http://eventlist.wemakemedia.cz/wp-content/uploads/2015/11/background_02.jpg)
 }*/
 
+#displayFormat {
+ display: block;
+ margin: 0 auto;
+};
+
 #header{
 	color: white;
 	font-size: 35px;
@@ -23,6 +28,16 @@
 }
 
 #loginButton{
+	color: white;
+	background-color: #93c54b;
+	font-size: 15px;
+	margin-top: 40%;
+	margin-right: 8%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#editProfileBtn{
 	color: white;
 	background-color: #93c54b;
 	font-size: 15px;
@@ -78,14 +93,21 @@
 }
 */
 
+#musicCategory{
+	margin-bottom: 70px;
+}
 
 
 
-#footerText{
-	/*margin-top: 10%;*/
+#footer{
 	color: white;
-	text-align: center;
-	/*padding-top: 10%;*/
+	text-align: center
+	height: 1px;
+	width: 100%;
+}
+
+#ourNames{
+	color: white;
 }
 
 

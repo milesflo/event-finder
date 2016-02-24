@@ -9,20 +9,21 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
         };
 
     $scope.redirect = function(query) {
+    	console.log(query);
         EVDB.API.call("/events/search", oArgs, function(response) {
             console.log(query, response);
-        })
-    }
+        });
+    };
 
 
-    $scope.initMap = function () {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 8
-            });
-    }
+    // $scope.initMap = function () {
+    //         map = new google.maps.Map(document.getElementById('map'), {
+    //             center: {lat: -34.397, lng: 150.644},
+    //             zoom: 8
+    //         });
+    // }
 
-    $scope.initMap();
+    // $scope.initMap();
 });
 
 
@@ -46,5 +47,5 @@ app.controller('LoginController', function($scope, $http) {
 });
 
 app.controller('ApiCtrl', function($scope, $http, $timeout){
-	
-})
+
+});
