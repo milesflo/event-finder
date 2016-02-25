@@ -12,6 +12,7 @@ var express 			= require("express"),
     dotenv              = require('dotenv').load(),
 	fbworker			= require('./fbReqs.js'),
 	token;
+	require('dotenv').load();
 
 	app.use(passport.initialize());
 
@@ -35,6 +36,7 @@ passport.use(new FacebookStrategy({
 	callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	function(token, refreshToken, profile, done) {
+		console.log(token);
 		token = token;
 		process.nextTick(function() {
 			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
@@ -82,8 +84,6 @@ app.get('/apiGet', function(req,res) {
 app.use(passport.session());
 
 require('./routes/users.js')(app,passport);
-
-
 var PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function() {console.log("Listening on localhost:", PORT)});
