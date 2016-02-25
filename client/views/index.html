@@ -39,14 +39,7 @@
   		</div>
 	</nav>
 	<!-- SEARCH BAR -->
-	<div class='input-group' id='search-box'>
-       	<form ng-submit="redirect(query)" id='eventSearch'>
-        	<label for="eventName"></label>
-          	<input type="text" id='eventName' name="eventName" placeholder=" Search..." ng-model="query"required >
-          	<input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'>
-      	</form>
-        <div id="q-results" class="results"></div>
-    </div>
+	
 
 
 	<!-- ng-view declaration -->
@@ -65,7 +58,6 @@
 	<script type="text/javascript" src="/client/js/directives.js"></script>
 	<script type="text/javascript" src="/client/js/filters.js"></script>
 	<script type="text/javascript" src="/client/js/services.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ"></script>
 	<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
 
 </body>
