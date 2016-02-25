@@ -69,6 +69,7 @@ app.get('/', function(req,res){
 
 app.get('/apiGet', function(req,res) {
 	worker.eventFulSearch(req.query);
+	console.log(token)
 	fbworker.fbQuery(req.query, token);
 })
 app.use(passport.initialize());
