@@ -1,5 +1,13 @@
 <!-- CATEGORIES -->
 <main>
+    <div class='input-group' id='search-box'>
+        <form ng-submit="queueSearch(query)" id='eventSearch'>
+          <label for="eventName"></label>
+            <input type="text" id='eventName' name="eventName" placeholder=" Search..." ng-model="query" required >
+            <input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'>
+        </form>
+        <div id="q-results" class="results"></div>
+    </div>
 <!-- MUSIC IAMGE AND TEXT -->    
   <section class="module parallax parallax-1">
     <div class="container-fluid">
@@ -26,7 +34,6 @@
       </div>
     </div>
   </section>
-
 
 <!-- FOOD IMAGE AND TEXT -->
   <section class="module parallax parallax-2">
