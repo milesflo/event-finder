@@ -1,29 +1,39 @@
 var request = require('request');
 // var fb_token = require('./server.js');
-var tmp_token = 'CAAOUu9aKBdkBAMaLRCEkbhMrHCO6KgkOGe4EVQoOCBhYC8so3z9zkngbBtm8hb97WZCN43oV2sSw9vZA9pQK1tlQ0ZBoOXmkrKkgCT1ZBynb5pmbUpFMZCfYx1ZCUFOvKWQElgtjtePum9B4VkBWjCzjQwMqB853LT465Sd1FV3ArzMGjXTLVZBUGEReI0PhFYZD'
-var query = 'art'
 
 var express = require('express');
 var app = express();
 // app.get('/', function(req, response) {
-	request.get('https://graph.facebook.com/search?q=' + query + 'San Francisco' + '&type=event&center=37.7833,-122.4167&distance=10000&access_token=' + tmp_token, function(err, res, body) {
-		var firstStep = JSON.parse(body).data;
-		var secondStep = fbParserID(firstStep)
-		var promises = [];
-		for (var i = 0; i < secondStep.length; i++) {
-			var eventID = secondStep[i].id;
-			var tmp = new Promise(function(resolve, reject) {
-				request.get('https://graph.facebook.com/v2.5/' + eventID + '?fields=description,cover,attending_count,name,end_time,start_time&access_token=' + tmp_token, function(err, resp, body2) {
-					if(err) reject(err);
-					resolve(body2);
+
+
+
+module.exports = {
+	fbQuery: function(query, token){
+		if(token) {
+			request.get('https://graph.facebook.com/search?q=' + query + 'San Francisco' + '&type=event&center=37.7833,-122.4167&distance=10000&access_token=' + token, function(err, res, body) {
+				var firstStep = JSON.parse(body).data;
+				var secondStep = fbParserID(firstStep)
+				var promises = [];
+				for (var i = 0; i < secondStep.length; i++) {
+					var eventID = secondStep[i].id;
+					var tmp = new Promise(function(resolve, reject) {
+						request.get('https://graph.facebook.com/v2.5/' + eventID + '?fields=description,cover,attending_count,name,end_time,start_time&access_token=' + token, function(err, resp, body2) {
+							if(err) reject(err);
+							resolve(body2);
+						})
+					});
+					promises.push(tmp);
+				}
+				Promise.all(promises).then(function(myHope) {
+					var final = fbParser(myHope)
+					console.log(final);
+					return final
 				})
-			});
-			promises.push(tmp);
+			})
 		}
-		Promise.all(promises).then(function(myHope) {
-			console.log(fbParser(myHope));
-		})
-	})
+	}
+}
+
 // }).listen(2000)
 
 
