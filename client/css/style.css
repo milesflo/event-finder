@@ -7,9 +7,6 @@
 	background-image: url(http://eventlist.wemakemedia.cz/wp-content/uploads/2015/11/background_02.jpg)
 }*/
 
-html{
-font-family: 'Hammersmith One', sans-serif;
-}
 
 .navbar {
 	border-radius: 0;
@@ -22,11 +19,11 @@ font-family: 'Hammersmith One', sans-serif;
  width: 100%;
 };
 
-#firstScroller{
-	/*display: block;
-	margin: 0 auto;*/
+/*#firstScroller{
+	display: block;
+	margin: 0 auto;
  	width: 1600px;
-}
+}*/
 
 #header{
 	color: white;
