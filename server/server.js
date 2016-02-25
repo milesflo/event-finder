@@ -7,8 +7,9 @@ var express 			= require("express"),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy,
+    eventBrite 	    	= require('./routes/eventBrite.js'),
+    worker              = require('./worker.js'),
     dotenv              = require('dotenv').load(),
-	worker 				= require('./worker.js'),
 	fbworker			= require('./fbReqs.js'),
 	token;
 
@@ -62,13 +63,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/api/users', routes.users);
+app.use('/api/eventBrite', eventBrite);
 
 app.get('/', function(req,res){
 	res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
 
 app.get('/apiGet', function(req,res) {
-<<<<<<< HEAD
 	worker.eventFulSearch(req.query, function(err, data) {
 		if (err) {
 			console.log("it's dead jim");
@@ -76,15 +77,12 @@ app.get('/apiGet', function(req,res) {
 		res.setHeader('Content-Type', 'application/json');
 		res.json(data);
 	});
-=======
-	worker.eventFulSearch(req.query);
-	fbworker.fbQuery(req.query, token);
->>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
-})
-app.use(passport.initialize());
+});
+
 app.use(passport.session());
 
 require('./routes/users.js')(app,passport);
+
 
 var PORT = process.env.PORT || 3000;
 

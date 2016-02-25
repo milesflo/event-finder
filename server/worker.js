@@ -1,7 +1,4 @@
-var knex = require('../db/knex'),
-
-
-eventfulSearch = function(query, done) {
+eventfulSearch = function(query) {
     var eventful = require('eventful-node')
     var client = new eventful.Client("QfMJMhDnc8BXXWC6");
 
