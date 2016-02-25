@@ -1,79 +1,59 @@
-
 .navbar {
-	border-radius: 0;
-	margin: 0;
+    border-radius: 0;
+    margin: 0;
 }
-
 .navbar {
-	border-radius: 0;
-	margin: 0;
+    border-radius: 0;
+    margin: 0;
 }
-
 #displayFormat {
  display: block;
  margin: 0 auto;
  width: 100%;
-
-
-#firstScroller{
-	/*display: block;
-	margin: 0 auto;*/
- 	width: 1600px;
 }
-
 #header{
-	color: white;
+    color: white;
 }
-
 .navbar-brand{
-	font-size: 35px;
+    font-size: 35px;
 }
-
 #homeButton{
-	color: white;
-
-	font-size: 15px;
-	margin-top: 40%;
-	padding-top: 2px;
-	padding-bottom: 2px;
+    color: white;
+    font-size: 15px;
+    margin-top: 40%;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
-
 #loginButton{
-	color: white;
-
-	font-size: 15px;
-	margin-top: 42%;
-	padding-top: 2px;
-	padding-bottom: 2px;
+    color: white;
+    font-size: 15px;
+    margin-top: 42%;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
-
 #logout{
-	color: white;
-	background-color: #93c54b;
-	font-size: 15px;
-	margin-top: 40%;
-	margin-right: 8%;
-	padding-top: 2px;
-	padding-bottom: 2px;
+    color: white;
+    background-color: #93c54b;
+    font-size: 15px;
+    margin-top: 40%;
+    margin-right: 8%;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
-
 #mainImg{
-	width: 1150px;
+    width: 1150px;
 }
-
 #navbar{
-	margin-bottom: 0px;
+    margin-bottom: 0px;
 }
-
 #search-box{
-	margin-top: 20px;
-	margin-left: 33%;
-	margin-bottom: 2%;	
+    margin-top: 20px;
+    margin-left: 33%;
+    margin-bottom: 2%;  
 }
-
 #eventName{
-	width: 500px;
-	height: 38px;
+    width: 500px;
+    height: 38px;
     padding: 8px 12px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -83,117 +63,90 @@
     border: 1px solid #cccccc;
     border-radius: 4px;
 }
-
-
 #musicCategory{
-	margin-bottom: 20px;
-	width: 100%;
+    margin-bottom: 20px;
+    width: 100%;
 }
-
-
 #musicLabel{
-	text-align: center;
+    text-align: center;
 }
-
 #sportsLabel{
-	text-align: center;
+    text-align: center;
 }
-
 #foodLabel{
-	text-align: center;
+    text-align: center;
 }
-
 #myEventsLabel{
-	text-align: center;
+    text-align: center;
 }
-
 #myEventsCategory{
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
-
 #thumbnailLabel{
-	text-align: center;
+    text-align: center;
 }
-
 #thumbnailBtn{
-	margin-left: 82%;
-	font-size: 9px;
-	margin-top: 27%;
-	padding-top: 2px;
-	padding-bottom: 2px;
+    margin-left: 82%;
+    font-size: 9px;
+    margin-top: 27%;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
-
 #removeBtn{
-	margin-left: 78%;
-	font-size: 9px;
-	margin-top: 27%;
-	padding-top: 2px;
-	padding-bottom: 2px;
+    margin-left: 78%;
+    font-size: 9px;
+    margin-top: 27%;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
-
 }
-
 #myEventsCategory{
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
-
 #thumbnailLabel{
-	text-align: center;
+    text-align: center;
 }
-
 #thumbnailBtn{
-	margin-left: 82%;
-	font-size: 9px;
-	margin-top: 27%;
-	padding-top: 2px;
-	padding-bottom: 2px;
+    margin-left: 82%;
+    font-size: 9px;
+    margin-top: 27%;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
-
 #removeBtn{
-	margin-left: 78%;
-	font-size: 9px;
-	margin-top: 27%;
-	padding-top: 2px;
-	padding-bottom: 2px;
+    margin-left: 78%;
+    font-size: 9px;
+    margin-top: 27%;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
-
 #popLabel{
-	text-align: center;
+    text-align: center;
 }
-
-
 #footer{
-	color: white;
-	text-align: center;
-	height: 1px;
-	width: 100%;
+    color: white;
+    text-align: center;
+    height: 1px;
+    width: 100%;
 }
-
 #footerText{
-	color: white;
-	text-align: center;
+    color: white;
+    text-align: center;
 }
-
 .fa-spin {
     animation: fa-spin 4s infinite linear;
 }
-
 #signupLabel{
-	text-align: center;
+    text-align: center;
 }
-
 #fbBtn{
-	margin-left: 47%;
-	margin-bottom: 50px;
+    margin-left: 47%;
+    margin-bottom: 50px;
 }
-
 #loginSpacing{
-	padding-top: 20px;
-	padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 50px;
 }
-
-
-
 /* ============================================================
   PARALLAX SECTIONS
 ============================================================ */
@@ -237,7 +190,7 @@ section.module.parallax h1 {
 }
 section.module.parallax-1 {
   background-image: url('../images/concertPic.jpg');
-	/*width: 1600px;*/
+    /*width: 1600px;*/
 }
 section.module.parallax-2 {
   background-image: url("../images/eatdrinkSF_interior_bright.jpg");
@@ -245,11 +198,9 @@ section.module.parallax-2 {
 section.module.parallax-3 {
   background-image: url("../images/giants_fans.jpg");
 }
-
 section.module.parallax-4{
-	background-image: url('http://www.ez8motels.com/files/111/EZ8.jpg');
+    background-image: url('http://www.ez8motels.com/files/111/EZ8.jpg');
 }
-
 @media all and (min-width: 600px) {
   section.module h2 {
     font-size: 42px;
@@ -266,73 +217,3 @@ section.module.parallax-4{
     font-size: 160px;
   }
 }
-
-/* ============================================================
-  SECTIONS
-============================================================ */
-section.module:last-child {
-   margin-bottom: 0;
-}
-section.module h2 {
-  margin-bottom: 40px;
-  font-family: "Roboto Slab", serif;
-  font-size: 30px;
-}
-section.module p {
-  margin-bottom: 40px;
-  font-size: 16px;
-  font-weight: 300;
-}
-section.module p:last-child {
-  margin-bottom: 0;
-}
-section.module.content {
-  padding: 40px 0;
-}
-section.module.parallax {
-  height: 600px;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-section.module.parallax h1 {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 48px;
-  line-height: 600px;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-section.module.parallax-1 {
-  background-image: url('../images/concertPic.jpg');
-	/*width: 1600px;*/
-}
-section.module.parallax-2 {
-  background-image: url("../images/eatdrinkSF_interior_bright.jpg");
-}
-section.module.parallax-3 {
-  background-image: url("../images/giants_fans.jpg");
-}
-
-@media all and (min-width: 600px) {
-  section.module h2 {
-    font-size: 42px;
-  }
-  section.module p {
-    font-size: 20px;
-  }
-  section.module.parallax h1 {
-    font-size: 96px;
-  }
-}
-@media all and (min-width: 960px) {
-  section.module.parallax h1 {
-    font-size: 160px;
-  }
-}
-

@@ -9,7 +9,6 @@ var express 			= require("express"),
 	FacebookStrategy	= require('passport-facebook').Strategy,
 	cookieParser 		= require('cookie-parser'),
     eventBrite 	    	= require('./routes/eventBrite.js'),
-    worker              = require('./worker.js'),
     dotenv              = require('dotenv').load(),
 	fbworker			= require('./fbReqs.js'),
 	token;
@@ -37,7 +36,7 @@ passport.use(new FacebookStrategy({
 	callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	function(token, refreshToken, profile, done) {
-		console.log(token);
+		//console.log(token);
 		token = token;
 		process.nextTick(function() {
 			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
@@ -81,13 +80,26 @@ app.get('/', function(req,res){
 });
 
 app.get('/apiGet', function(req,res) {
-	worker.eventFulSearch(req.query, function(err, data) {
-		if (err) {
-			console.log("it's dead jim");
+	if (req.query.q) {
+		knex('queue').insert({
+			query: req.query.q,
+			done: false
+		}).then(function () {
+			res.json({status: "queued"});
+		});
+	}
+});
+
+app.get('/searchResults', function(req, res) {
+	console.log(req.query.q);
+	knex('user_events').where('event_name', 'like', '%'+req.query.q+'%').then(
+		function(data) {
+			console.log(data);
+			res.json(data);
 		}
-		res.setHeader('Content-Type', 'application/json');
-		res.json(data);
-	});
+	);
+
+
 });
 
 app.use(passport.session());

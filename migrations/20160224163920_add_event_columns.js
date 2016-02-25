@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.table("user_events", function (table) {
   	table.string("event_name");
-  	table.string("event_desc");
+  	table.text("event_desc");
   	table.string("latitude");
   	table.string("longitude");
   	table.dateTime("start_time");
