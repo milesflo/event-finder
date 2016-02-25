@@ -86,7 +86,6 @@ app.get('/searchResults', function(req, res) {
 	console.log(req.query.q);
 	knex('user_events').where('event_name', 'like', '%'+req.query.q+'%').then(
 		function(data) {
-			console.log(data);
 			res.json(data);
 		}
 	);

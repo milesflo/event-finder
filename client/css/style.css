@@ -95,6 +95,19 @@ body {
 #myEventsCategory{
     margin-bottom: 20px;
 }
+
+div.thumbnail {
+	min-height: 40.25em;
+}
+
+#Logo {
+	height: 43.5px;
+}
+
+div.thumbnail > img {
+	min-height: 20.25em;
+	max-height: 25.25em;
+}
 #thumbnailLabel{
     text-align: center;
 }
