@@ -7,10 +7,19 @@ var express 			= require("express"),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy,
+<<<<<<< HEAD
 	fb_token;
 	require('dotenv').load();
 
 app.use(passport.initialize());
+=======
+    dotenv              = require('dotenv').load(),
+	worker 				= require('./worker.js'),
+	fbworker			= require('./fbReqs.js'),
+	token;
+
+	app.use(passport.initialize());
+>>>>>>> master
 
 passport.serializeUser(function(user, done) {
 	if(user[0] === undefined){
@@ -32,8 +41,12 @@ passport.use(new FacebookStrategy({
 	callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	function(token, refreshToken, profile, done) {
+<<<<<<< HEAD
 		// fb_token = token;
 		console.log(token);
+=======
+		token = token;
+>>>>>>> master
 		process.nextTick(function() {
 			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
@@ -63,9 +76,14 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use('/api/users', routes.users);
 
 app.get('/', function(req,res){
-  res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
+	res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
 
+app.get('/apiGet', function(req,res) {
+	worker.eventFulSearch(req.query);
+	console.log(token)
+	fbworker.fbQuery(req.query, token);
+})
 app.use(passport.initialize());
 app.use(passport.session());
 
