@@ -1,19 +1,15 @@
 app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     window.scope = $scope;
     $scope.eventCategories = [""];
-    var oArgs = {
-            app_key:   "QfMJMhDnc8BXXWC6",
-            id:        "20218701",
-            page_size: 25 ,
-            q:         $scope.query,
-        };
 
     $scope.redirect = function(query) {
-    	console.log(query);
-        EVDB.API.call("/events/search", oArgs, function(response) {
-            console.log(query, response);
-        });
+        $http.get("/apiGet?q="+query);
     };
+
+    // $http.get("/api/eventBrite").success(function (data) {
+    //     data = data.myData;
+    // });
+
 
 
     // $scope.initMap = function () {

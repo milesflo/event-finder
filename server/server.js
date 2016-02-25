@@ -7,6 +7,8 @@ var express 			= require("express"),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy;
+var eventBrite 		= require('./routes/eventBrite.js');
+var worker = require('./worker.js');
 
 require('dotenv').load();
 
@@ -35,7 +37,7 @@ passport.use(new FacebookStrategy({
 	function(token, refreshToken, profile, done) {
 		console.log(profile + "HERE!!!!");
 		process.nextTick(function() {
-			Knex('users').where({facebook_id: profile.id}).then(function(user, err) {
+			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
 					done(err);
 				if(user[0]) {
@@ -53,7 +55,6 @@ passport.use(new FacebookStrategy({
 ));
 
 
-
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
@@ -63,14 +64,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/api/users', routes.users);
+app.use('/api/eventBrite', eventBrite);
 
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
-app.use(passport.initialize());
+
+app.get('/apiGet', function(req,res) {
+	worker.eventFulSearch(req.query);
+});
+// app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/users.js')(app,passport);
+
 
 var PORT = process.env.PORT || 3000;
 

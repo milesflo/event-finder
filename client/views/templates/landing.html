@@ -1,67 +1,62 @@
-<!-- <input type="text" id="query" ng-model="query"></input>
-<p>{{query}}</p>
-<button ng-click="redirect(query)">Query #1</button> <br>
-<div id="map" style="height:300px"></div>
- -->
+<div class='container' id='displayFormat'>
+        <div class="container-fluid">
+            <img id='mainImg' src='http://static1.squarespace.com/static/52f3ba1fe4b0932b3f775421/t/530e5fa1e4b07a55c9b3d6ad/1393450915317/Beer+Die+Events.jpg?format=1500w' height='350px'>
+        <!-- SEARCH BAR -->
+            <div class='input-group' id='search-box'>
+                <form ng-submit="redirect(query)" id='eventSearch'>
+                    <label for="eventName"></label>
+                    <input type="text" id='eventName' name="eventName" placeholder=" Search..." ng-model="query"required >
+                    <input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'>
+                </form>
+                <div id="q-results" class="results"></div>
+            </div>
+        </div>
+        <!-- CATEGORIES -->
+        <!-- music -->
+        <div class='container'>
+            <h4 id='musicLabel'> <strong> MUSIC: </strong> </h4>
+                <div class="row" id='musicCategory'>
+                    <div class="col-sm-3 col-md-4">
+                        <div class="thumbnail">
+                            <img src="https://unsplash.it/400/300/?random" alt="...">
+                            <div class="caption">
+                                <h4 id='thumbnailLabel'>Thumbnail Label</h4>
+                                <p>...</p>
+                                <p>
+                                    <a href="#" id='thumbnailBtn' class="btn btn-primary" role="button">Save</a> 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-4">
+                        <div class="thumbnail">
+                            <img src="https://unsplash.it/400/300/?random" alt="...">
+                            <div class="caption">
+                                <h4 id='thumbnailLabel'>Thumbnail Label</h4>
+                                <p>...</p>
+                                <p>
+                                    <a href="#" id='thumbnailBtn' class="btn btn-primary" role="button">Save</a> 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-4">
+                        <div class="thumbnail">
+                            <img src="https://unsplash.it/400/300/?random" alt="...">
+                            <div class="caption">
+                                <h4 id='thumbnailLabel'>Thumbnail Label</h4>
+                                <p>...</p>
+                                <p>
+                                    <a href="#" id='thumbnailBtn' class="btn btn-primary" role="button">Save</a> 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- sports -->
+            <h4 id='sportsLabel'> <strong> SPORTS: </strong></h4>
+                
+            <!-- food -->
+            <h4 id='foodLabel'><strong> FOOD: </strong></h4>
+        </div>
 
-	<div class='container' id='displayFormat'>
-		<div class="container-fluid">
-			<img id='mainImg' src='http://static1.squarespace.com/static/52f3ba1fe4b0932b3f775421/t/530e5fa1e4b07a55c9b3d6ad/1393450915317/Beer+Die+Events.jpg?format=1500w' height='350px'>
-
-		<!-- SEARCH BAR -->
-			<div class='input-group' id='search-box'>
-		       	<form ng-submit="redirect(query)" id='eventSearch'>
-		        	<label for="eventName"></label>
-		          	<input type="text" id='eventName' name="eventName" placeholder=" Search..." ng-model="query"required >
-		          	<input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'>
-		      	</form>
-		        <div id="q-results" class="results"></div>
-		    </div>
-		</div>
-
-	    <!-- CATEGORIES -->
-
-	    <!-- music -->
-	    <div class='container'>
-	     Music:
-		    <div class="row" id='musicCategory'>
-			  	<div class="col-sm-6 col-md-3">
-			    	<div class="thumbnail">
-			      		<img src="https://unsplash.it/300/200/?random" alt="...">
-			      		<div class="caption">
-			        		<h3>Thumbnail label</h3>
-			        		<p>...</p>
-			        		<p><a href="#" class="btn btn-primary" role="button">Button</a> </p>
-			      		</div>
-			    	</div>
-			  	</div>
-			  	<div class="col-sm-6 col-md-3">
-			    	<div class="thumbnail">
-			      		<img src="https://unsplash.it/300/200/?random" alt="...">
-			      		<div class="caption">
-			        		<h3>Thumbnail label</h3>
-			        		<p>...</p>
-			        		<p><a href="#" class="btn btn-primary" role="button">Button</a> </p>
-			      		</div>
-			    	</div>
-			  	</div>
-			  	<div class="col-sm-6 col-md-3">
-			    	<div class="thumbnail">
-			      		<img src="https://unsplash.it/300/200/?random" alt="...">
-			      		<div class="caption">
-			        		<h3>Thumbnail label</h3>
-			        		<p>...</p>
-			        		<p><a href="#" class="btn btn-primary" role="button">Button</a> </p>
-			      		</div>
-			    	</div>
-			  	</div>
-
-			</div>
-
-		<!-- sports -->
-		<div class='container'>
-		Sports:
-		    
-		<!-- food -->
-		Food:
-	</div>
