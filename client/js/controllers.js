@@ -8,20 +8,12 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
 
     
     $http.get("/api/eventBrite").success(function (data) {
-        console.log(data);
+        // console.log(data);
         $scope.myData = data;
 
     });
 
 
-    // $scope.initMap = function () {
-    //         map = new google.maps.Map(document.getElementById('map'), {
-    //             center: {lat: -34.397, lng: 150.644},
-    //             zoom: 8
-    //         });
-    // }
-
-    // $scope.initMap();
 });
 
 

@@ -4,7 +4,6 @@ var request = require('request');
 var express = require('express');
 var app = express();
 
-
 module.exports = {
 	fbQuery: function(query, token){
 		if(token) {

@@ -7,6 +7,7 @@ var express 			= require("express"),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy,
+	cookieParser 		= require('cookie-parser'),
     eventBrite 	    	= require('./routes/eventBrite.js'),
     worker              = require('./worker.js'),
     dotenv              = require('dotenv').load(),
@@ -63,6 +64,14 @@ app.use('/templates',express.static(path.join(__dirname, '../client/js/templates
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+
+app.use(cookieParser());
+app.use(cookieParser());
+
+app.use(session({
+	name: 'session',
+	keys: [process.env.KEY1]
+}));
 
 app.use('/api/users', routes.users);
 app.use('/api/eventBrite', eventBrite);
