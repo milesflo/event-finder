@@ -6,10 +6,12 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     	$http.get("/apiGet?q="+query);
     };
 
-    // $http.get("/api/eventBrite").success(function (data) {
-    //     data = data.myData;
-    // });
+    
+    $http.get("/api/eventBrite").success(function (data) {
+        console.log(data);
+        $scope.myData = data;
 
+    });
 
 
     // $scope.initMap = function () {

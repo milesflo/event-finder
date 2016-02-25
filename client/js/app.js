@@ -15,7 +15,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 		controller: "Landing"
 	})
 	.when('/login',{
-	    templateUrl: "/client/templates/login.html",
+	    templateUrl: "/client/views/templates/login.html",
 	    controller: "LoginController",
   	})
   	.when('/signup',{
@@ -25,7 +25,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 	 	redirectTo: "/"
 	});
 
-	// $locationProvider.html5Mode(true);
+	
 	// Registed the interceptor for our application
   	$httpProvider.interceptors.push("AuthInterceptor");
 });
@@ -36,6 +36,7 @@ app.service("AuthInterceptor", function($window,$location,$q){
       var token = localStorage.getItem('jwt');
       // If the JWT exists in local storage, add an authorization header
       if(token) config.headers.Authorization = 'Bearer ' + token;
+      
 
       return config;
     }
