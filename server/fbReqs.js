@@ -3,7 +3,7 @@ var request = require('request');
 
 var express = require('express');
 var app = express();
-
+var token = 'CAAOUu9aKBdkBAIVJuMhrOiH3ffifom2rZBbTaNP4nC8tkoYlvWR1L8ZBmES22Cg1hVj2qVMGi6sQPpA8lRK6GLCIkVXlw9Py1HCGGvPpiFrPtAdty0n0ZCHNabZBy5O9ynKZArt7hWLgmkCytNb02W3NwDpysaZAEkrNhhsQNOXqN5sZCmVZCZAPmzpMVHtkrCzoZD'
 module.exports = {
 	fbQuery: function(query, token){
 		if(token) {
@@ -30,6 +30,34 @@ module.exports = {
 		}
 	}
 }
+
+
+// function fbQuery(query, token){
+// 		if(token) {
+// 			request.get('https://graph.facebook.com/search?q=' + query + 'San Francisco' + '&type=event&center=37.7833,-122.4167&distance=10000&access_token=' + token, function(err, res, body) {
+// 				var firstStep = JSON.parse(body).data;
+// 				var secondStep = fbParserID(firstStep)
+// 				var promises = [];
+// 				for (var i = 0; i < secondStep.length; i++) {
+// 					var eventID = secondStep[i].id;
+// 					var tmp = new Promise(function(resolve, reject) {
+// 						request.get('https://graph.facebook.com/v2.5/' + eventID + '?fields=description,cover,attending_count,name,end_time,start_time&access_token=' + token, function(err, resp, body2) {
+// 							if(err) reject(err);
+// 							resolve(body2);
+// 						})
+// 					});
+// 					promises.push(tmp);
+// 				}
+// 				Promise.all(promises).then(function(myHope) {
+// 					var final = fbParser(myHope)
+// 					console.log(final);
+// 					return final
+// 				})
+// 			})
+// 		}
+// 	}
+
+// fbQuery('music festival', token)
 
 function fbParser(data) {
 	var eventArr = [];

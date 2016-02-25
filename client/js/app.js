@@ -42,5 +42,3 @@ app.service("AuthInterceptor", function($window,$location,$q){
   };
 });
 
-
-
