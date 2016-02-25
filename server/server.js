@@ -68,7 +68,13 @@ app.get('/', function(req,res){
 });
 
 app.get('/apiGet', function(req,res) {
-	worker.eventFulSearch(req.query);
+	worker.eventFulSearch(req.query, function(err, data) {
+		if (err) {
+			console.log("it's dead jim");
+		}
+		res.setHeader('Content-Type', 'application/json');
+		res.json(data);
+	});
 })
 app.use(passport.initialize());
 app.use(passport.session());
