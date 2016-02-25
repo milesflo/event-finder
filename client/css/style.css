@@ -4,12 +4,16 @@
 	margin: 0;
 }
 
+.navbar {
+	border-radius: 0;
+	margin: 0;
+}
+
 #displayFormat {
  display: block;
  margin: 0 auto;
  width: 100%;
-};
-
+}
 
 #header{
 	color: white;
@@ -21,15 +25,15 @@
 
 #homeButton{
 	color: white;
-	font-size: 18px;
-	margin-top: 41%;
+	font-size: 15px;
+	margin-top: 40%;
 	padding-top: 2px;
 	padding-bottom: 2px;
 }
 
 #loginButton{
 	color: white;
-	font-size: 18px;
+	font-size: 15px;
 	margin-top: 42%;
 	padding-top: 2px;
 	padding-bottom: 2px;
@@ -119,6 +123,32 @@
 	padding-bottom: 2px;
 }
 
+}
+
+#myEventsCategory{
+	margin-bottom: 20px;
+}
+
+#thumbnailLabel{
+	text-align: center;
+}
+
+#thumbnailBtn{
+	margin-left: 82%;
+	font-size: 9px;
+	margin-top: 27%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#removeBtn{
+	margin-left: 78%;
+	font-size: 9px;
+	margin-top: 27%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
 #popLabel{
 	text-align: center;
 }
@@ -126,7 +156,7 @@
 
 #footer{
 	color: white;
-	text-align: center
+	text-align: center;
 	height: 1px;
 	width: 100%;
 }
@@ -228,5 +258,4 @@ section.module.parallax-4{
     font-size: 160px;
   }
 }
-
 
