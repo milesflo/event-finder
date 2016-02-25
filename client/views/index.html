@@ -18,34 +18,48 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat|Hammersmith+One' rel='stylesheet' type='text/css'>	
 	<!-- Css Page -->
 	<link rel="stylesheet" href="/client/css/style.css">
 </head>
 <body>
-	<!-- HEADER -->
+
+<!-- HEADER -->
 	<nav class="navbar navbar-inverse" id='navbar'>
-  		<div class="container">
+  		<div class="container-fluid">
     		<div class="navbar-header">
-     			<a class="navbar-brand" href="#" id='header'>
-     			<i class="fa fa-rebel text-primary"></i> Epic Events
+     			<a class="navbar-brand" href="/" id='header'>
+     				<i class="fa fa-rebel text-primary"></i> Epic Events
      			</a>
     		</div>
       		<ul class="nav navbar-nav navbar-right">
-		        <li><a href="/" id='homeButton'>Home</a></li>
-		        <li><a href="#" id='loginButton'>Login</a></li>
+		        <li><a href="/" id='homeButton'><strong>Home</strong></a></li>
+		        <li><a href="/templates/apiReq" id='loginButton'><strong>Login</strong></a></li>
       		</ul>
   		</div>
 	</nav>
 
-	<div ng-view>
+	<!-- SEARCH BAR -->
+	<div class='input-group' id='search-box'>
+       	<form ng-submit="redirect(query)" id='eventSearch'>
+        	<label for="eventName"></label>
+          	<input type="text" id='eventName' name="eventName" placeholder=" Search..." ng-model="query"required >
+          	<input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'>
+      	</form>
+        <div id="q-results" class="results"></div>
+    </div>
 
+
+	<!-- ng-view declaration -->
+	<div ng-view> </div>
+
+<!-- FOOTER -->
+	<div class="navbar navbar-fixed-bottom navbar-inverse" id='footer'>
+		<h5 id='footerText'>Cairo <i class="fa fa-cog fa-xs fa-spin "></i> David <i class="fa fa-cog fa-xs fa-spin "></i> Tum <i class="fa fa-cog fa-xs fa-spin "></i> Ana <i class="fa fa-cog fa-xs fa-spin "></i> Miles</h5>
 	</div>
 
-	<!-- FOOTER -->
-	<div class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<p id='footerText'>Cairo, David, Tum, Ana, Miles</p>
-		</div>
+	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ"></script> -->
+
 	</div>
 
 	<!-- scripts -->
@@ -57,5 +71,6 @@
 	<script type="text/javascript" src="/client/js/services.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtYI_eraaIZ5feXutGQOPRVNY2_15G5VQ"></script>
 	<script type="text/javascript" src="http://api.eventful.com/js/api"></script>
+
 </body>
 </html>
