@@ -6,8 +6,8 @@ var express 			= require("express"),
 	path 				= require('path'),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
-	FacebookStrategy	= require('passport-facebook').Strategy;
-
+	FacebookStrategy	= require('passport-facebook').Strategy,
+	fb_token;
 	require('dotenv').load();
 
 app.use(passport.initialize());
@@ -32,7 +32,8 @@ passport.use(new FacebookStrategy({
 	callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	function(token, refreshToken, profile, done) {
-		console.log(profile);
+		// fb_token = token;
+		console.log(token);
 		process.nextTick(function() {
 			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
@@ -69,7 +70,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/users.js')(app,passport);
-
 var PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function() {console.log("Listening on localhost:", PORT)});
+// module.exports = fb_token;
