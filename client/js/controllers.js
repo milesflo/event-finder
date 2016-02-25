@@ -3,7 +3,7 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     $scope.eventCategories = [""];
 
     $scope.redirect = function(query) {
-        $http.get("/apiGet?q="+query);
+        $http.get("/api/eventBrite?q="+query);
     };
 
     // $http.get("/api/eventBrite").success(function (data) {
