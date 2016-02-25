@@ -1,24 +1,31 @@
-var request = require('request-promise');
+var request = require('request');
 // var fb_token = require('./server.js');
-var tmp_token = 'CAACEdEose0cBAOp2CLwxcScb8qYoh3fNJeITkWJoCKFqDkpZB7NSLfbfUdWq24ZC1SzEyBQQcrLGc15QkDtQGBQmZCVsDBMV3puiDyco4O97avAIM5rl6w3mEsHabjESV3MzE0VznOKBH4mb9mleVXHBkvbs1RXAVOtEHhZBTjEnZArLFVRJfrVHsk9mtoloutlJfc8mh8gZDZD'
-var query = 'galvanize'
+var tmp_token = 'CAAOUu9aKBdkBAMaLRCEkbhMrHCO6KgkOGe4EVQoOCBhYC8so3z9zkngbBtm8hb97WZCN43oV2sSw9vZA9pQK1tlQ0ZBoOXmkrKkgCT1ZBynb5pmbUpFMZCfYx1ZCUFOvKWQElgtjtePum9B4VkBWjCzjQwMqB853LT465Sd1FV3ArzMGjXTLVZBUGEReI0PhFYZD'
+var query = 'art'
 
 var express = require('express');
 var app = express();
-app.get('/', function(req, response) {
-	request.get('https://graph.facebook.com/search?q=' + query + 'San Francisco' + '&type=event&center=37.7833,-122.4167&distance=10000&access_token=' + tmp_token).then(function(data) {
-		var arr = fbParser(JSON.parse(data).data);
+// app.get('/', function(req, response) {
+	request.get('https://graph.facebook.com/search?q=' + query + 'San Francisco' + '&type=event&center=37.7833,-122.4167&distance=10000&access_token=' + tmp_token, function(err, res, body) {
+		var firstStep = JSON.parse(body).data;
+		var secondStep = fbParser(firstStep)
 		var promises = [];
-		for(point in arr) {
-			realDatapoint = arr[point].id;
-			console.log(realDatapoint);
-			request.get('https://graph.facebook.com/v2.5/' + realDatapoint).then(function(target) {
-				promises.push(target);
-			})
+		for (var i = 0; i < secondStep.length; i++) {
+			var eventID = secondStep[i].id;
+			var tmp = new Promise(function(resolve, reject) {
+				request.get('https://graph.facebook.com/v2.5/' + eventID + '?fields=description,cover,attending_count,end_time,start_time&access_token=' + tmp_token, function(err, resp, body2) {
+					if(err) reject(err);
+					resolve(body2);
+				})
+			});
+			promises.push(tmp);
 		}
-		response.send(promises);
+		Promise.all(promises).then(function(myHope) {
+			var thing = JSON.parse(JSON.stringify(myHope))
+			console.log(thing[5])
+		})
 	})
-}).listen(2000)
+// }).listen(2000)
 
 
 
