@@ -1,4 +1,8 @@
 
+body{
+	font-size: 16px;
+}
+
 .navbar {
 	border-radius: 0;
 	margin: 0;
@@ -58,12 +62,23 @@
 }
 
 #search-box{
-	margin-top: 20px;
-	margin-left: 33%;
-	margin-bottom: 2%;	
+	margin-top: 40px;
+	margin-bottom: 2%;
 }
 
-#eventName{
+#searchBtn{
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 37.9861px;
+	border: 1px solid #CCCCCC;
+	border-radius:5px;
+}
+
+#searchBtn:hover{
+	box-shadow: 0 0 0 .1em #CCCCCC;
+}
+
+#eventName {
 	width: 500px;
 	height: 38px;
     padding: 8px 12px;
@@ -151,6 +166,15 @@
 
 #popLabel{
 	text-align: center;
+}
+
+.container-fluid {
+	margin: 0 8%;
+}
+
+#Logo {
+	width: 170px;
+	height: 45px;
 }
 
 

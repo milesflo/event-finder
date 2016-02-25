@@ -11,8 +11,9 @@ var express 			= require("express"),
     worker              = require('./worker.js'),
     dotenv              = require('dotenv').load(),
 	fbworker			= require('./fbReqs.js'),
+	jwt					= require('jsonwebtoken'),
 	token;
-	require('dotenv').load();
+						  require('dotenv').load();
 
 	app.use(passport.initialize());
 
