@@ -6,13 +6,19 @@ var express 			= require("express"),
 	path 				= require('path'),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
+<<<<<<< HEAD
 	FacebookStrategy	= require('passport-facebook').Strategy;
 var eventBrite 		= require('./routes/eventBrite.js');
 var worker = require('./worker.js');
+=======
+	FacebookStrategy	= require('passport-facebook').Strategy,
+    dotenv              = require('dotenv').load(),
+	worker 				= require('./worker.js'),
+	fbworker			= require('./fbReqs.js'),
+	token;
+>>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
 
-require('dotenv').load();
-
-app.use(passport.initialize());
+	app.use(passport.initialize());
 
 passport.serializeUser(function(user, done) {
 	if(user[0] === undefined){
@@ -23,11 +29,10 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-	Knex('users').where({ id: user.id }).then(function(user, err) {
+	knex('users').where({ id: user.id }).then(function(user, err) {
 		done(err, user);
 	});
 });
-
 
 passport.use(new FacebookStrategy({
 	clientID: process.env.FBCLIENTID,
@@ -35,7 +40,7 @@ passport.use(new FacebookStrategy({
 	callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	function(token, refreshToken, profile, done) {
-		console.log(profile + "HERE!!!!");
+		token = token;
 		process.nextTick(function() {
 			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
@@ -54,7 +59,10 @@ passport.use(new FacebookStrategy({
 	}
 ));
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
@@ -67,13 +75,19 @@ app.use('/api/users', routes.users);
 app.use('/api/eventBrite', eventBrite);
 
 app.get('/', function(req,res){
-  res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
+	res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
 
 app.get('/apiGet', function(req,res) {
 	worker.eventFulSearch(req.query);
+<<<<<<< HEAD
 });
 // app.use(passport.initialize());
+=======
+	fbworker.fbQuery(req.query, token);
+})
+app.use(passport.initialize());
+>>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
 app.use(passport.session());
 
 require('./routes/users.js')(app,passport);

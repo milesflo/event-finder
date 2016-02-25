@@ -1,5 +1,9 @@
 eventfulSearch = function(query) {
+<<<<<<< HEAD
     var eventful = require('eventful-node');
+=======
+    var eventful = require('eventful-node')
+>>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
     var client = new eventful.Client("QfMJMhDnc8BXXWC6");
 
     console.log(query.q);
@@ -28,4 +32,8 @@ eventfulSearch = function(query) {
 
 module.exports = {
     eventFulSearch: eventfulSearch,
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d

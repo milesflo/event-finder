@@ -21,10 +21,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
   	.when('/signup',{
 	    templateUrl: "/client/templates/signup.html",
 	    controller: "SignupController",
-   	});
-    // .otherwise({
-	// 	redirectTo: "/"
-	// });
+   	}).otherwise({
+	 	redirectTo: "/"
+	});
 
 	// $locationProvider.html5Mode(true);
 	// Registed the interceptor for our application
@@ -42,3 +41,6 @@ app.service("AuthInterceptor", function($window,$location,$q){
     }
   };
 });
+
+
+

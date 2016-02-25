@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+.navbar {
+	border-radius: 0;
+	margin: 0;
+=======
+/*/*body{
+	background-color: red;
+>>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
+}
+
 .navbar {
 	border-radius: 0;
 	margin: 0;
@@ -82,6 +92,7 @@
 
 #myEventsLabel{
 	text-align: center;
+<<<<<<< HEAD
 }
 
 #myEventsCategory{
@@ -108,6 +119,34 @@
 	padding-bottom: 2px;
 }
 
+=======
+}
+
+#myEventsCategory{
+	margin-bottom: 20px;
+}
+
+#thumbnailLabel{
+	text-align: center;
+}
+
+#thumbnailBtn{
+	margin-left: 82%;
+	font-size: 9px;
+	margin-top: 27%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#removeBtn{
+	margin-left: 78%;
+	font-size: 9px;
+	margin-top: 27%;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+>>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
 #popLabel{
 	text-align: center;
 }
