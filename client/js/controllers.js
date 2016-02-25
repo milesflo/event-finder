@@ -6,6 +6,11 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     	$http.get("/apiGet?q="+query);
     };
 
+    // $http.get("/api/eventBrite").success(function (data) {
+    //     data = data.myData;
+    // });
+
+
 
     // $scope.initMap = function () {
     //         map = new google.maps.Map(document.getElementById('map'), {

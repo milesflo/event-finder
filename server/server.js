@@ -7,19 +7,14 @@ var express 			= require("express"),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy,
-<<<<<<< HEAD
-	fb_token;
-	require('dotenv').load();
-
-app.use(passport.initialize());
-=======
+    eventBrite 	    	= require('./routes/eventBrite.js'),
+    worker              = require('./worker.js'),
     dotenv              = require('dotenv').load(),
-	worker 				= require('./worker.js'),
 	fbworker			= require('./fbReqs.js'),
 	token;
+	require('dotenv').load();
 
 	app.use(passport.initialize());
->>>>>>> master
 
 passport.serializeUser(function(user, done) {
 	if(user[0] === undefined){
@@ -74,21 +69,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/api/users', routes.users);
+app.use('/api/eventBrite', eventBrite);
 
 app.get('/', function(req,res){
 	res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
 
 app.get('/apiGet', function(req,res) {
-	worker.eventFulSearch(req.query);
-	console.log(token)
-	fbworker.fbQuery(req.query, token);
-})
-app.use(passport.initialize());
+	worker.eventFulSearch(req.query, function(err, data) {
+		if (err) {
+			console.log("it's dead jim");
+		}
+		res.setHeader('Content-Type', 'application/json');
+		res.json(data);
+	});
+});
+
 app.use(passport.session());
 
 require('./routes/users.js')(app,passport);
 var PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function() {console.log("Listening on localhost:", PORT)});
-// module.exports = fb_token;
