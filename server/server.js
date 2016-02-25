@@ -6,17 +6,12 @@ var express 			= require("express"),
 	path 				= require('path'),
 	knex 				= require('../db/knex'),
 	passport 			= require('passport'),
-<<<<<<< HEAD
-	FacebookStrategy	= require('passport-facebook').Strategy;
-var eventBrite 		= require('./routes/eventBrite.js');
-var worker = require('./worker.js');
-=======
 	FacebookStrategy	= require('passport-facebook').Strategy,
+    eventBrite 	    	= require('./routes/eventBrite.js'),
+    worker              = require('./worker.js'),
     dotenv              = require('dotenv').load(),
-	worker 				= require('./worker.js'),
 	fbworker			= require('./fbReqs.js'),
 	token;
->>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
 
 	app.use(passport.initialize());
 
@@ -59,10 +54,6 @@ passport.use(new FacebookStrategy({
 	}
 ));
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
@@ -79,7 +70,6 @@ app.get('/', function(req,res){
 });
 
 app.get('/apiGet', function(req,res) {
-<<<<<<< HEAD
 	worker.eventFulSearch(req.query, function(err, data) {
 		if (err) {
 			console.log("it's dead jim");
@@ -87,17 +77,8 @@ app.get('/apiGet', function(req,res) {
 		res.setHeader('Content-Type', 'application/json');
 		res.json(data);
 	});
-=======
-	worker.eventFulSearch(req.query);
-<<<<<<< HEAD
 });
-// app.use(passport.initialize());
-=======
-	fbworker.fbQuery(req.query, token);
->>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
-})
-app.use(passport.initialize());
->>>>>>> f44e5fb0adbecb921c7928ada26905238ed6493d
+
 app.use(passport.session());
 
 require('./routes/users.js')(app,passport);
