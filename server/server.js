@@ -36,12 +36,8 @@ passport.use(new FacebookStrategy({
 	callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	function(token, refreshToken, profile, done) {
-<<<<<<< HEAD
-		// fb_token = token;
 		console.log(token);
-=======
 		token = token;
->>>>>>> master
 		process.nextTick(function() {
 			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
