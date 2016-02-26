@@ -1,4 +1,3 @@
-
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('queue', function(table){
     table.increments();
@@ -10,4 +9,3 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
 	return knex.schema.dropTable('queue');  
 };
-   

@@ -2,6 +2,7 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     window.scope = $scope;
     $scope.eventCategories = [""];
     $scope.loading = false;
+    $scope.isUserLoggedIn = true;
     $scope.queueSearch = function(query) {
         console.log(query);
         // add a spinner gif to the page
@@ -28,7 +29,7 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     })
 
     // $http.get("/api/eventBrite").success(function (data) {
-    //     data = data.myData;
+    //     // data = data.myData;
     // });
 })
 
