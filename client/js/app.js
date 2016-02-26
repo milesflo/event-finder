@@ -14,6 +14,10 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 		templateUrl: "partials/event.html",
 		controller: "Landing"
 	})
+	.when('/dashboard', {
+		templateUrl: "/client/views/templates/dashboard.html",
+		controller: "Landing"
+	})
 	.when('/login',{
 	    templateUrl: "/client/templates/login.html",
 	    controller: "LoginController",
