@@ -16,7 +16,7 @@ eventfulSearch = function(query, done) {
 
             }
             done(null, data);
-
+            // console.log(data);
             var insertPromises = [];
 
             if (data && data.search && data.search.total_items >0) {
