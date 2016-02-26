@@ -3,7 +3,7 @@ var promise = require("bluebird");
 var dateFormat = require('dateformat');
 
 eventfulSearch = function(query, done) {
-    var eventful = require('eventful-node')
+    var eventful = require('eventful-node');
     var client = new eventful.Client("QfMJMhDnc8BXXWC6");
 
     client.searchEvents({   keywords: query.query,
@@ -39,8 +39,8 @@ eventfulSearch = function(query, done) {
                         //console.log("goodbye");
                         //console.log(response);
                     });
-                } 
-            };
+                }
+            }
             knex('queue').update({done: true}).where({id: query.id}).then(function(){});
     });
 };
@@ -60,4 +60,4 @@ setInterval(processQueue,1000);
 module.exports = {
     eventFulSearch : eventfulSearch,
     processQueue   : processQueue
-}
+};

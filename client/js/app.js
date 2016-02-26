@@ -7,15 +7,15 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 		controller: "Landing",
 	})
 	.when('/api', {
-		templateUrl: "client/views/templates/apiReq.html",
+		templateUrl: "/client/views/templates/apiReq.html",
 		controller: 'ApiCtrl'
 	})
-	.when('/event', {
-		templateUrl: "partials/event.html",
+	.when('/dashboard', {
+		templateUrl: "/client/views/templates/dashboard.html",
 		controller: "Landing"
 	})
 	.when('/login',{
-	    templateUrl: "/client/templates/login.html",
+	    templateUrl: "/client/views/templates/login.html",
 	    controller: "LoginController",
   	})
   	.when('/signup',{
@@ -42,4 +42,4 @@ app.service("AuthInterceptor", function($window,$location,$q){
   };
 });
 
-Status API Training Shop Blog About Pricing
+

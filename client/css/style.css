@@ -1,10 +1,15 @@
 body {
-	font-size: 16px;
-	background: black;
+  font-size: 16px;
+  background: black;
 }
 .navbar {
     border-radius: 0;
     margin: 0;
+    padding-bottom: 1em;
+}
+
+.container-fluid {
+  margin: 0 8%;
 }
 #displayFormat {
  display: block;
@@ -52,20 +57,20 @@ body {
     margin-bottom: 2%;  
 }
 #searchBtn{
-	padding-left: 10px;
-	padding-right: 10px;
-	height: 37.9861px;
-	border: 1px solid #CCCCCC;
-	border-radius:5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 37.9861px;
+  border: 1px solid #CCCCCC;
+  border-radius:5px;
 }
 
 #searchBtn:hover {
-	box-shadow: 0 0 0 .1em #CCCCCC;
+  box-shadow: 0 0 0 .1em #CCCCCC;
 }
 
 #eventName {
-	width: 500px;
-	height: 38px;
+  width: 500px;
+  height: 38px;
     padding: 8px 12px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -97,16 +102,16 @@ body {
 }
 
 div.thumbnail {
-	min-height: 40.25em;
+  min-height: 40.25em;
 }
 
 #Logo {
-	height: 43.5px;
+  height: 43.5px;
 }
 
 div.thumbnail > img {
-	min-height: 20.25em;
-	max-height: 25.25em;
+  min-height: 20.25em;
+  max-height: 25.25em;
 }
 #thumbnailLabel{
     text-align: center;

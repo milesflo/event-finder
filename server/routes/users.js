@@ -7,7 +7,7 @@ var express     = require("express"),
 module.exports = function(app,passport){
     app.get('/auth/facebook/callback',
             passport.authenticate('facebook', {
-                successRedirect: '/#/',
+                successRedirect: '/#/dashboard',
                 failureRedirect: '/'
             })
         );

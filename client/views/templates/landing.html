@@ -1,3 +1,4 @@
+<!-- CATEGORIES -->
 <main>
     <div class='input-group' id='search-box'>
         <form ng-submit="queueSearch(query)" id='eventSearch'>
@@ -18,15 +19,18 @@
   <section class="module content">
     <div class="container-fluid">
       <div class="row" id='musicCategory'>
-        <div ng-repeat="m in musicArr" class="col-sm-3 col-md-4">
+        <div ng-repeat="m in musicArr track by $index" class="col-sm-3 col-md-4">
           <div class="thumbnail">
             <img ng-src="{{m.img}}" alt="...">
               <div class="caption">
-                <h4 id='thumbnailLabel'>{{m.name}}</h4>
-                <p>{{m.description}}</p>
-                <p>
+                <h4 id='thumbnailLabel'><b>{{m.title}}<b></h4>
+                <p>{{m.description | limitTo: 300}}...</p>
+                <div class="col-md-6">
                   <a href="#" class="btn btn-primary form-control" role="button">Save</a> 
-                </p>
+                </div>
+                <div class="col-md-6">
+                  <a href="/event/{{id:}}" class="btn btn-primary form-control" role="button">view event</a>
+                </div>
               </div>
           </div>
         </div>
@@ -45,38 +49,14 @@
   <section class="module content">
     <div class="container-fluid">
       <div class="row" id='musicCategory'>
-        <div class="col-sm-3 col-md-4">
+        <div ng-repeat="m in foodArr track by $index" class="col-sm-3 col-md-4">
           <div class="thumbnail">
-            <img src="https://unsplash.it/400/300/?random" alt="...">
+            <img ng-src="{{m.img}}" alt="...">
               <div class="caption">
-                <h4 id='thumbnailLabel'>Thumbnail Label</h4>
-                <p>...</p>
+                <h4 id='thumbnailLabel'><b>{{m.name}}</b></h4>
+                <p>{{m.description | limitTo: 300}}...</p>
                 <p>
-                  <a href="#" class="btn btn-primary" role="button">Save</a> 
-                </p>
-              </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-4">
-          <div class="thumbnail">
-              <img src="https://unsplash.it/400/300/?random" alt="...">
-              <div class="caption">
-                <h4 id='thumbnailLabel'>Thumbnail Label</h4>
-                <p>...</p>
-                <p>
-                  <a href="#" class="btn btn-primary" role="button">Save</a> 
-                </p>
-              </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-4">
-          <div class="thumbnail">
-              <img src="https://unsplash.it/400/300/?random" alt="...">
-              <div class="caption">
-                <h4 id='thumbnailLabel'>Thumbnail Label</h4>
-                <p>...</p>
-                <p>
-                  <a href="#" class="btn btn-primary" role="button">Save</a> 
+                  <a href="#" class="btn btn-primary form-control" role="button">Save</a> 
                 </p>
               </div>
           </div>
@@ -96,38 +76,14 @@
   <section class="module content">
     <div class="container-fluid">
       <div class="row" id='musicCategory'>
-        <div class="col-sm-3 col-md-4">
+        <div ng-repeat="m in sportsArr track by $index" class="col-sm-3 col-md-4">
           <div class="thumbnail">
-            <img src="https://unsplash.it/400/300/?random" alt="...">
+            <img ng-src="{{m.img}}" alt="...">
               <div class="caption">
-                <h4 id='thumbnailLabel'>Thumbnail Label</h4>
-                <p>...</p>
+                <h4 id='thumbnailLabel'><b>{{m.title}}</b></h4>
+                <p>{{m.description | limitTo: 300}}...</p>
                 <p>
-                  <a href="#" class="btn btn-primary" role="button">Save</a> 
-                </p>
-              </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-4">
-          <div class="thumbnail">
-              <img src="https://unsplash.it/400/300/?random" alt="...">
-              <div class="caption">
-                <h4 id='thumbnailLabel'>Thumbnail Label</h4>
-                <p>...</p>
-                <p>
-                  <a href="#" class="btn btn-primary" role="button">Save</a> 
-                </p>
-              </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-md-4">
-          <div class="thumbnail">
-              <img src="https://unsplash.it/400/300/?random" alt="...">
-              <div class="caption">
-                <h4 id='thumbnailLabel'>Thumbnail Label</h4>
-                <p>...</p>
-                <p>
-                  <a href="#" class="btn btn-primary" role="button">Save</a> 
+                  <a href="#" class="btn btn-primary form-control" role="button">Save</a>
                 </p>
               </div>
           </div>
