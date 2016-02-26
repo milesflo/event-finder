@@ -39,7 +39,7 @@ eventfulSearch = function(query, done) {
                         //console.log("goodbye");
                         //console.log(response);
                     });
-                }
+                } 
             };
             knex('queue').update({done: true}).where({id: query.id}).then(function(){});
     });

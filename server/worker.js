@@ -8,7 +8,7 @@ eventfulSearch = function(query, done) {
 
     client.searchEvents({   keywords: query.query,
                             location: "San Francisco"
-                        }, 
+                        },
         function(err, data){
             if(err){
 
@@ -16,7 +16,7 @@ eventfulSearch = function(query, done) {
 
             }
             done(null, data);
-
+            // console.log(data);
             var insertPromises = [];
 
             if (data && data.search && data.search.total_items >0) {
@@ -39,8 +39,13 @@ eventfulSearch = function(query, done) {
                         //console.log("goodbye");
                         //console.log(response);
                     });
+<<<<<<< HEAD
                 }
             }
+=======
+                } 
+            };
+>>>>>>> 4c15cdae863fe3d60debf46db05f043d5dd4f84b
             knex('queue').update({done: true}).where({id: query.id}).then(function(){});
     });
 };

@@ -41,6 +41,7 @@ passport.use(new FacebookStrategy({
 	function(token, refreshToken, profile, done) {
 		//console.log(token);
 		token = token;
+		console.log(token)
 		process.nextTick(function() {
 			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)
@@ -91,6 +92,12 @@ app.get('/apiGet', function(req,res) {
 	}
 });
 
+app.get('/event/:id', function(req, res) {
+	knex('user_events').where({id: req.params.id}).then(function(data) {
+		res.send(data);
+	})
+})
+
 app.get('/searchResults', function(req, res) {
 	console.log(req.query.q);
 	knex('user_events').where('event_name', 'like', '%'+req.query.q+'%').then(
@@ -104,7 +111,7 @@ app.get('/loadHome', function(req, res) {
 	var payload = [];
 	knex('user_events').where('event_name', 'like', '%Music%').then(function(data) {
 		var finalTmp = theGreaterParser(data);
-		// console.log(data);
+		console.log(data);
 		var tmp = {};
 		tmp.data = finalTmp;
 		tmp.type = 'Music';
@@ -130,12 +137,15 @@ app.get('/loadHome', function(req, res) {
 function theGreaterParser(data) {
         var tmpArr = data,
             final = [];
+            console.log(data)
 
         for (var i = 0; i < tmpArr.length; i++) {
             var tmpObj = {},
                 event = tmpArr[i].eventJson;
+                tmpObj.id = tmpArr[i].id;
 
-            if(event.title && event.description && event.start_time && event.stop_time) {
+
+            if(event.title && event.description && event.start_time) {
                 tmpObj.title = event.title;
                 tmpObj.description = event.description;
 				tmpObj.start_time = event.start_time;
@@ -149,7 +159,6 @@ function theGreaterParser(data) {
             	final.push(tmpObj)
             }
         }
-        console.log(final)
         return final;
     }
 

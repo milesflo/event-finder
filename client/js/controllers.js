@@ -2,7 +2,6 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
     window.scope = $scope;
     $scope.eventCategories = [""];
     $scope.loading = false;
-    $scope.isUserLoggedIn = true;
     $scope.queueSearch = function(query) {
         console.log(query);
         // add a spinner gif to the page
@@ -12,73 +11,30 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
         // use setTimeout to make another request after .5 seconds
         setTimeout( function() {
             $http.get("/searchResults?q="+query).then(function(results) {
-                /* THIS IS THE RESULT OF THE DATABASE CALL. IT DOES NOT FILTER DUPLICATE SEARCHES/RESULTS*/
-                var res = theGreaterParser(results)
-                $scope.results = [res[random(res)], res[random(res)], res[random(res)]]
-
-                console.log($scope.results);
+/* THIS IS THE RESULT OF THE DATABASE CALL. IT DOES NOT FILTER DUPLICATE SEARCHES/RESULTS*/
+                $scope.results=results;
             });
             $scope.loading = false;
         },2000);
-    }
-
-    $http.get('/loadHome').then(function(data) {
-        $scope.musicArr = picker(data.data[0].data);
-        $scope.foodArr = picker(data.data[1].data);
-        $scope.sportsArr = picker(data.data[2].data);
-    })
+    };
 
     // $http.get("/api/eventBrite").success(function (data) {
-    //     // data = data.myData;
+    //     data = data.myData;
     // });
-})
 
-function picker(arr) {
-    var tmp = [];
-    for (var i = 0; i < arr.length; i++) {
-        tmp.push(arr[random(arr)]);
-        if(tmp.length > 2){
-            return tmp;
-        }
-    }
-    return tmp
-}
 
-function random(arr) {
-    return Math.floor(Math.random() * arr.length - 1)
-}
 
-function theGreaterParser(data) {
-        var tmpArr = data.data,
-            final = [];
-        for (var i = 0; i < tmpArr.length; i++) {
-            var tmpObj = {},
-                event = tmpArr[i].eventJson;
+    // $scope.initMap = function () {
+    //         map = new google.maps.Map(document.getElementById('map'), {
+    //             center: {lat: -34.397, lng: 150.644},
+    //             zoom: 8
+    //         });
+    // }
 
-            if(event.title) {
-                tmpObj.title = event.title;
-            }
-            if (event.image.large) {
-                tmpObj.img = event.image.large.url;
-            } else {
-                tmpObj.img = '/client/images/Drawing.png';
-            }
-            if (event.description) {
-                tmpObj.description = event.description;
-            }
-            if (event.start_time) {
-                tmpObj.start_time = event.start_time;
-            }
-            if (event.stop_time) {
-                tmpObj.end_time = event.stop_time;
-            }
-            if (i > 99) {
-                return final;
-            }
-            final.push(tmpObj)
-        }
-        return final;
-    }
+    // $scope.initMap();
+});
+
+
 app.controller('LoginController', function($scope, $http) {
     $scope.user = {};
     $scope.posts = [];
@@ -98,7 +54,6 @@ app.controller('LoginController', function($scope, $http) {
     }
 });
 
-
 app.controller('ApiCtrl', function($scope, $http, $timeout){
-    $location.path("/dashboard");
+
 });

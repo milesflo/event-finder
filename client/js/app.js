@@ -7,22 +7,21 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 		controller: "Landing",
 	})
 	.when('/api', {
-		templateUrl: "/client/views/templates/apiReq.html",
+		templateUrl: "client/views/templates/apiReq.html",
 		controller: 'ApiCtrl'
 	})
-	.when('/dashboard', {
-		templateUrl: "/client/views/templates/dashboard.html",
+	.when('/event', {
+		templateUrl: "partials/event.html",
 		controller: "Landing"
 	})
 	.when('/login',{
-	    templateUrl: "/client/views/templates/login.html",
+	    templateUrl: "/client/templates/login.html",
 	    controller: "LoginController",
   	})
   	.when('/signup',{
 	    templateUrl: "/client/templates/signup.html",
 	    controller: "SignupController",
-   	})
-   	.otherwise({
+   	}).otherwise({
 	 	redirectTo: "/"
 	});
 
@@ -42,5 +41,3 @@ app.service("AuthInterceptor", function($window,$location,$q){
     }
   };
 });
-
-
