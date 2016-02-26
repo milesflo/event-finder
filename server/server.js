@@ -89,11 +89,63 @@ app.get('/searchResults', function(req, res) {
 			res.json(data);
 		}
 	);
-
-
 });
 
+app.get('/loadHome', function(req, res) {
+	var payload = [];
+	knex('user_events').where('event_name', 'like', '%Music%').then(function(data) {
+		var finalTmp = theGreaterParser(data);
+		// console.log(data);
+		var tmp = {};
+		tmp.data = finalTmp;
+		tmp.type = 'Music';
+		payload.push(tmp)
+		knex('user_events').where('event_name', 'like', '%Food%').then(function(data) {
+			var finalTmp = theGreaterParser(data)
+			var tmp = {};
+			tmp.data = finalTmp;
+			tmp.type = 'Food';
+			payload.push(tmp)
+			knex('user_events').where('event_name', 'like', '%Sports%').then(function(data) {
+				var finalTmp = theGreaterParser(data)
+				var tmp = {};
+				tmp.data = finalTmp;
+				tmp.type = 'Sports';
+				payload.push(tmp);
+				res.send(payload);
+			})
+		})
+	})
+})
+
+function theGreaterParser(data) {
+        var tmpArr = data,
+            final = [];
+
+        for (var i = 0; i < tmpArr.length; i++) {
+            var tmpObj = {},
+                event = tmpArr[i].eventJson;
+
+            if(event.title && event.description && event.start_time && event.stop_time) {
+                tmpObj.title = event.title;
+                tmpObj.description = event.description;
+				tmpObj.start_time = event.start_time;
+				tmpObj.end_time = event.stop_time;
+
+				if (event.image.large) {
+                	tmpObj.img = event.image.large.url;
+            	} else {
+                	tmpObj.img = '/client/images/Drawing.png';
+            	}
+            	final.push(tmpObj)
+            }
+        }
+        console.log(final)
+        return final;
+    }
+
 app.use(passport.session());
+
 
 require('./routes/users.js')(app,passport);
 var PORT = process.env.PORT || 3000;

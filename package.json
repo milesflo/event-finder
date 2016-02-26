@@ -18,6 +18,7 @@
   "homepage": "https://github.com/sirinapha88/event-finder#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "dateformat": "^1.0.12",
     "dotenv": "^2.0.0",
     "ejs": "^2.4.1",
     "eventful-node": "^1.1.1",
@@ -30,6 +31,6 @@
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.0",
     "pg": "^4.4.6",
-    "request": "^2.69.0",
+    "request": "^2.69.0"
   }
 }

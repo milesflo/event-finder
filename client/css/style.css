@@ -5,6 +5,11 @@ body {
 .navbar {
     border-radius: 0;
     margin: 0;
+    padding-bottom: 1em;
+}
+
+.container-fluid {
+	margin: 0 8%;
 }
 #displayFormat {
  display: block;
