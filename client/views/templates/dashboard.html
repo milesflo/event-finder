@@ -1,32 +1,12 @@
-<!-- <input type="text" id="query" ng-model="query"></input>
-<p>{{query}}</p>
-<button ng-click="redirect(query)">Query #1</button> <br>
-<div id="map" style="height:300px"></div>
- -->
-
-
-<!-- SEARCH BAR -->
-<div class='input-group' id='search-box'>
-    <form ng-submit="redirect(query)" id='eventSearch'>
-      <label for="eventName"></label>
-        <input type="text" id='eventName' name="eventName" placeholder=" Search..." ng-model="query"required >
-        <input type="submit" class="fa fa-search" value= '&#xf002' id='searchBtn'> &nbsp;
-        <span ng-show='loading'>
-        <i class="fa fa-spinner fa-pulse fa-lg"></i>
-        </span>
-    </form>
-    <div id="q-results" class="results"></div>
-</div>
-
 <!-- CATEGORIES -->
 <main>
 
 <!-- MY EVENTS IMAGE -->
-	<section class="module parallax parallax-5">
-	    <div class="container-fluid">
-	      <h1>MY EVENTS</h1>
-	    </div>
- 	</section>
+  <section class="module parallax parallax-5">
+      <div class="container-fluid">
+        <h1>MY EVENTS</h1>
+      </div>
+  </section>
 
 <!-- MY EVENTS THUMBNAILS -->
   <section class="module content">
@@ -35,13 +15,13 @@
         <div class="col-sm-3 col-md-4">
           <div class="thumbnail">
             <img src="https://unsplash.it/400/300/?random" alt="...">
-              <div class="caption">
-                <h4 id='thumbnailLabel'>Thumbnail Label</h4>
-                <p>...</p>
-                <p>
-                  <a href="#" id='thumbnailBtn' class="btn btn-primary" role="button">Remove</a> 
-                </p>
-              </div>
+            <div class="caption">
+              <h4 id='thumbnailLabel'>Thumbnail Label</h4>
+              <p>...</p>
+              <p>
+                <a href="#" id='thumbnailBtn' class="btn btn-primary" role="button">Remove</a> 
+              </p>
+            </div>
           </div>
         </div>
         <div class="col-sm-3 col-md-4">
@@ -124,6 +104,3 @@
     </div>
   </section>
 </main>
-
-</body>
-</html>
