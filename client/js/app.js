@@ -10,9 +10,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider) {
 		templateUrl: "client/views/templates/apiReq.html",
 		controller: 'ApiCtrl'
 	})
-	.when('/event', {
-		templateUrl: "partials/event.html",
-		controller: "Landing"
+	.when('/event/:id', {
+		templateUrl: "client/views/templates/event.html",
+		controller: "Event"
 	})
 	.when('/login',{
 	    templateUrl: "/client/templates/login.html",

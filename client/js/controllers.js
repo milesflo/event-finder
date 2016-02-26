@@ -1,4 +1,4 @@
-app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
+app.controller("Landing", function($scope, $rootScope, $routeParams, $http, $location) {
     window.scope = $scope;
     $scope.eventCategories = [""];
     $scope.loading = false;
@@ -14,13 +14,21 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
                 /* THIS IS THE RESULT OF THE DATABASE CALL. IT DOES NOT FILTER DUPLICATE SEARCHES/RESULTS*/
                 var res = theGreaterParser(results)
                 $scope.results = [res[random(res)], res[random(res)], res[random(res)]]
-                console.log($scope.results);
+                // console.log($scope.results);
             });
             $scope.loading = false;
         },2000);
     }
 
+    $scope.getEvent = function(id) {
+        $http.get('/event/' + id).then(function(data) {
+            $scope.tmp = data;
+            $location.path('/event/'+id);
+        })
+    }
+
     $http.get('/loadHome').then(function(data) {
+        console.log(data);
         $scope.musicArr = picker(data.data[0].data);
         $scope.foodArr = picker(data.data[1].data);
         $scope.sportsArr = picker(data.data[2].data);
@@ -52,6 +60,7 @@ function theGreaterParser(data) {
 
             if(event.title) {
                 tmpObj.title = event.title;
+                tmpObj.id = event.id
             }
             if (event.image.large) {
                 tmpObj.img = event.image.large.url;
@@ -96,3 +105,12 @@ app.controller('LoginController', function($scope, $http) {
 app.controller('ApiCtrl', function($scope, $http, $timeout){
 
 });
+
+app.controller("Event", function($scope, $rootScope, $routeParams, $http, $location) {
+
+    var id = $routeParams.id;
+    $http.get('/event/'+id).then(function(data) {
+        $scope.event=theGreaterParser(data)[0];
+    });
+
+})
