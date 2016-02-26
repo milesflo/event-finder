@@ -8,11 +8,14 @@ var express 			= require("express"),
 	passport 			= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy,
 	cookieParser 		= require('cookie-parser'),
+	session      		= require('cookie-session'),
+	bcrypt 				= require('bcrypt'),
     eventBrite 	    	= require('./routes/eventBrite.js'),
     dotenv              = require('dotenv').load(),
 	fbworker			= require('./fbReqs.js'),
+	jwt					= require('jsonwebtoken'),
 	token;
-	require('dotenv').load();
+						  require('dotenv').load();
 
 	app.use(passport.initialize());
 
@@ -62,18 +65,16 @@ app.use('/templates',express.static(path.join(__dirname, '../client/js/templates
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.use(cookieParser());
-app.use(cookieParser());
+app.use('/api/users', routes.users);
+app.use('/api/eventBrite', eventBrite);
 
 app.use(session({
 	name: 'session',
 	keys: [process.env.KEY1]
 }));
-
-app.use('/api/users', routes.users);
-app.use('/api/eventBrite', eventBrite);
 
 app.get('/', function(req,res){
 	res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
@@ -94,7 +95,6 @@ app.get('/searchResults', function(req, res) {
 	console.log(req.query.q);
 	knex('user_events').where('event_name', 'like', '%'+req.query.q+'%').then(
 		function(data) {
-			console.log(data);
 			res.json(data);
 		}
 	);

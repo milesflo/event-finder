@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/sirinapha88/event-finder#readme",
   "dependencies": {
+    "bcrypt": "^0.8.5",
+    "bluebird": "^3.3.3",
     "body-parser": "^1.15.0",
+    "cookie-session": "^1.2.0",
+    "dateformat": "^1.0.12",
     "dotenv": "^2.0.0",
     "ejs": "^2.4.1",
     "eventful-node": "^1.1.1",
@@ -31,5 +35,6 @@
     "passport-facebook": "^2.1.0",
     "pg": "^4.4.6",
     "request": "^2.69.0",
+    "session": "^0.1.0"
   }
 }

@@ -6,7 +6,7 @@ eventfulSearch = function(query, done) {
     var eventful = require('eventful-node')
     var client = new eventful.Client("QfMJMhDnc8BXXWC6");
 
-	client.searchEvents({   keywords: query.query,
+    client.searchEvents({   keywords: query.query,
                             location: "San Francisco"
                         }, 
         function(err, data){

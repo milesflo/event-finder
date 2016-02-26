@@ -10,7 +10,7 @@ app.get('/', function(req, res) {
 	request.get('https://www.eventbriteapi.com/v3/events/search?q=' + searchKey + '&token=J7WH6466CFBTZQZ43RJP' , function(err, response, body){
 		
 		var myData = JSON.parse(body).events;
-		console.log(myData)
+		
 		res.json(myData);
 	});
 

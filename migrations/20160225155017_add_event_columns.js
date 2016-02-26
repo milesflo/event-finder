@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
   	table.string("longitude");
   	table.dateTime("start_time");
   	table.dateTime("end_time");
-  })
+  });
 };
 
 exports.down = function(knex, Promise) {
@@ -17,5 +17,5 @@ exports.down = function(knex, Promise) {
   	table.dropColumn("longitude");
   	table.dropColumn("start_time");
   	table.dropColumn("end_time");
-  })
+  });
 };
