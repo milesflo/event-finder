@@ -40,7 +40,11 @@ eventfulSearch = function(query, done) {
                         //console.log(response);
                     });
                 }
+<<<<<<< HEAD
             }
+=======
+            };
+>>>>>>> 56b81085954e2fa903a6cb1536ae8f316f8d5d66
             knex('queue').update({done: true}).where({id: query.id}).then(function(){});
     });
 };
