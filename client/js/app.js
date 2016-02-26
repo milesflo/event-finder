@@ -1,4 +1,4 @@
-app = angular.module("eventTracker", ["ngRoute", "ngAnimate", "ngResource"]);
+var app = angular.module("eventTracker", ["ngRoute", "ngAnimate", "ngResource"]);
 
 app.config(function($routeProvider, $locationProvider, $httpProvider) {
 	$routeProvider

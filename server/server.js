@@ -38,6 +38,7 @@ passport.use(new FacebookStrategy({
 	function(token, refreshToken, profile, done) {
 		//console.log(token);
 		token = token;
+		console.log(token)
 		process.nextTick(function() {
 			knex('users').where({facebook_id: profile.id}).then(function(user, err) {
 				if(err)

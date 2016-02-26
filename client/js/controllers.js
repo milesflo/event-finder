@@ -14,7 +14,6 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
                 /* THIS IS THE RESULT OF THE DATABASE CALL. IT DOES NOT FILTER DUPLICATE SEARCHES/RESULTS*/
                 var res = theGreaterParser(results)
                 $scope.results = [res[random(res)], res[random(res)], res[random(res)]]
-
                 console.log($scope.results);
             });
             $scope.loading = false;
@@ -34,11 +33,8 @@ app.controller("Landing", function($scope, $rootScope, $routeParams, $http) {
 
 function picker(arr) {
     var tmp = [];
-    for (var i = 0; i < arr.length; i++) {
+    for (var i = 0; i < 3; i++) {
         tmp.push(arr[random(arr)]);
-        if(tmp.length > 2){
-            return tmp;
-        }
     }
     return tmp
 }
